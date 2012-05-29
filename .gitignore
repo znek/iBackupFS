@@ -1,0 +1,5 @@
+*.pbxuser
+*.perspectivev3
+iBackupFS.xcodeproj/xcuserdata/znek.xcuserdatad
+iBackupFS.xcodeproj/project.xcworkspace/xcuserdata
+iBackupFS.xcodeproj/project.xcworkspace
