@@ -1,0 +1,294 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AD0F69E1157562E500031119 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0F69E0157562E500031119 /* Cocoa.framework */; };
+		AD0F69EB157562E500031119 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD0F69E9157562E500031119 /* InfoPlist.strings */; };
+		AD0F69ED157562E500031119 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F69EC157562E500031119 /* main.m */; };
+		AD0F69F1157562E500031119 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AD0F69EF157562E500031119 /* Credits.rtf */; };
+		AD0F69F4157562E500031119 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F69F3157562E500031119 /* AppDelegate.m */; };
+		AD0F69F7157562E500031119 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0F69F5157562E500031119 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AD0F69DC157562E500031119 /* iBackupFS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBackupFS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD0F69E0157562E500031119 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		AD0F69E3157562E500031119 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		AD0F69E4157562E500031119 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		AD0F69E5157562E500031119 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AD0F69E8157562E500031119 /* iBackupFS-Info.plist */ = {isa = PBXFileReference; path = "iBackupFS-Info.plist"; sourceTree = "<group>"; };
+		AD0F69EA157562E500031119 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AD0F69EC157562E500031119 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AD0F69EE157562E500031119 /* iBackupFS-Prefix.pch */ = {isa = PBXFileReference; path = "iBackupFS-Prefix.pch"; sourceTree = "<group>"; };
+		AD0F69F0157562E500031119 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		AD0F69F2157562E500031119 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		AD0F69F3157562E500031119 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AD0F69F6157562E500031119 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AD0F69D9157562E500031119 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD0F69E1157562E500031119 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AD0F69D1157562E500031119 = {
+			isa = PBXGroup;
+			children = (
+				AD0F69E6157562E500031119 /* iBackupFS */,
+				AD0F69DF157562E500031119 /* Frameworks */,
+				AD0F69DD157562E500031119 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AD0F69DD157562E500031119 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AD0F69DC157562E500031119 /* iBackupFS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AD0F69DF157562E500031119 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD0F69E0157562E500031119 /* Cocoa.framework */,
+				AD0F69E2157562E500031119 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD0F69E2157562E500031119 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD0F69E3157562E500031119 /* AppKit.framework */,
+				AD0F69E4157562E500031119 /* CoreData.framework */,
+				AD0F69E5157562E500031119 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		AD0F69E6157562E500031119 /* iBackupFS */ = {
+			isa = PBXGroup;
+			children = (
+				AD0F69F2157562E500031119 /* AppDelegate.h */,
+				AD0F69F3157562E500031119 /* AppDelegate.m */,
+				AD0F69F5157562E500031119 /* MainMenu.xib */,
+				AD0F69E7157562E500031119 /* Supporting Files */,
+			);
+			path = iBackupFS;
+			sourceTree = "<group>";
+		};
+		AD0F69E7157562E500031119 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AD0F69E8157562E500031119 /* iBackupFS-Info.plist */,
+				AD0F69E9157562E500031119 /* InfoPlist.strings */,
+				AD0F69EC157562E500031119 /* main.m */,
+				AD0F69EE157562E500031119 /* iBackupFS-Prefix.pch */,
+				AD0F69EF157562E500031119 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AD0F69DB157562E500031119 /* iBackupFS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD0F69FA157562E500031119 /* Build configuration list for PBXNativeTarget "iBackupFS" */;
+			buildPhases = (
+				AD0F69D8157562E500031119 /* Sources */,
+				AD0F69D9157562E500031119 /* Frameworks */,
+				AD0F69DA157562E500031119 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iBackupFS;
+			productName = iBackupFS;
+			productReference = AD0F69DC157562E500031119 /* iBackupFS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AD0F69D3157562E500031119 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Mulle kybernetiK";
+			};
+			buildConfigurationList = AD0F69D6157562E500031119 /* Build configuration list for PBXProject "iBackupFS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AD0F69D1157562E500031119;
+			productRefGroup = AD0F69DD157562E500031119 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AD0F69DB157562E500031119 /* iBackupFS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AD0F69DA157562E500031119 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD0F69EB157562E500031119 /* InfoPlist.strings in Resources */,
+				AD0F69F1157562E500031119 /* Credits.rtf in Resources */,
+				AD0F69F7157562E500031119 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AD0F69D8157562E500031119 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD0F69ED157562E500031119 /* main.m in Sources */,
+				AD0F69F4157562E500031119 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AD0F69E9157562E500031119 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD0F69EA157562E500031119 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AD0F69EF157562E500031119 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD0F69F0157562E500031119 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		AD0F69F5157562E500031119 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD0F69F6157562E500031119 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AD0F69F8157562E500031119 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		AD0F69F9157562E500031119 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AD0F69FB157562E500031119 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iBackupFS/iBackupFS-Prefix.pch";
+				INFOPLIST_FILE = "iBackupFS/iBackupFS-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AD0F69FC157562E500031119 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iBackupFS/iBackupFS-Prefix.pch";
+				INFOPLIST_FILE = "iBackupFS/iBackupFS-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AD0F69D6157562E500031119 /* Build configuration list for PBXProject "iBackupFS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD0F69F8157562E500031119 /* Debug */,
+				AD0F69F9157562E500031119 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD0F69FA157562E500031119 /* Build configuration list for PBXNativeTarget "iBackupFS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD0F69FB157562E500031119 /* Debug */,
+				AD0F69FC157562E500031119 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AD0F69D3157562E500031119 /* Project object */;
+}
