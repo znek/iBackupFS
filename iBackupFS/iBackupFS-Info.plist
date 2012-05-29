@@ -9,13 +9,24 @@
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
-	<string>com.mulle.znek.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.mulle-kybernetik.znek.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>${PRODUCT_NAME}</string>
+	<key>LSUIElement</key>
+	<string>1</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>NSUserDefaults</key>
+	<dict>
+		<key>FUSEMountName</key>
+		<string>iBackupFS</string>
+		<key>FUSEMountPath</key>
+		<string>/Volumes/iBackupFS</string>
+		<key>FUSEObjectFileSystemClass</key>
+		<string>iBackupFileSystem</string>
+	</dict>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
@@ -23,7 +34,7 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSApplicationCategoryType</key>
-	<string>public.app-category.productivity</string>
+	<string>public.app-category.utilities</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>NSHumanReadableCopyright</key>

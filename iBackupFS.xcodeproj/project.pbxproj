@@ -8,11 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		AD0F69E1157562E500031119 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0F69E0157562E500031119 /* Cocoa.framework */; };
-		AD0F69EB157562E500031119 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD0F69E9157562E500031119 /* InfoPlist.strings */; };
 		AD0F69ED157562E500031119 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F69EC157562E500031119 /* main.m */; };
-		AD0F69F1157562E500031119 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AD0F69EF157562E500031119 /* Credits.rtf */; };
-		AD0F69F4157562E500031119 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F69F3157562E500031119 /* AppDelegate.m */; };
 		AD0F69F7157562E500031119 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0F69F5157562E500031119 /* MainMenu.xib */; };
+		AD0F6A031575644900031119 /* iBackupFileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A021575644900031119 /* iBackupFileSystem.m */; };
+		AD0F6A051575672E00031119 /* OSXFUSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0F6A041575672E00031119 /* OSXFUSE.framework */; };
+		AD0F6A261575689100031119 /* ChangeLog in Resources */ = {isa = PBXBuildFile; fileRef = AD0F6A0A1575689100031119 /* ChangeLog */; };
+		AD0F6A271575689100031119 /* FUSEObjectFileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A0C1575689100031119 /* FUSEObjectFileSystem.m */; };
+		AD0F6A281575689100031119 /* FUSEOFSAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A0E1575689100031119 /* FUSEOFSAppController.m */; };
+		AD0F6A291575689100031119 /* FUSEOFSFileProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A101575689100031119 /* FUSEOFSFileProxy.m */; };
+		AD0F6A2A1575689100031119 /* FUSEOFSLookupContext.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A121575689100031119 /* FUSEOFSLookupContext.m */; };
+		AD0F6A2B1575689100031119 /* FUSEOFSMemoryContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A141575689100031119 /* FUSEOFSMemoryContainer.m */; };
+		AD0F6A2C1575689100031119 /* FUSEOFSMemoryFile.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A161575689100031119 /* FUSEOFSMemoryFile.m */; };
+		AD0F6A2D1575689100031119 /* FUSEOFSMemoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A181575689100031119 /* FUSEOFSMemoryObject.m */; };
+		AD0F6A331575689100031119 /* NSObject+FUSEOFS.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A251575689100031119 /* NSObject+FUSEOFS.m */; };
+		AD0F6A3615756EB100031119 /* iBackupSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A3515756EB100031119 /* iBackupSet.m */; };
+		AD0F6A391575751100031119 /* iBackup.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A381575751100031119 /* iBackup.m */; };
+		AD0F6A3C157584EE00031119 /* iBackupObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A3B157584EE00031119 /* iBackupObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,14 +32,37 @@
 		AD0F69E3157562E500031119 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		AD0F69E4157562E500031119 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		AD0F69E5157562E500031119 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		AD0F69E8157562E500031119 /* iBackupFS-Info.plist */ = {isa = PBXFileReference; path = "iBackupFS-Info.plist"; sourceTree = "<group>"; };
-		AD0F69EA157562E500031119 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AD0F69E8157562E500031119 /* iBackupFS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iBackupFS-Info.plist"; sourceTree = "<group>"; };
 		AD0F69EC157562E500031119 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AD0F69EE157562E500031119 /* iBackupFS-Prefix.pch */ = {isa = PBXFileReference; path = "iBackupFS-Prefix.pch"; sourceTree = "<group>"; };
-		AD0F69F0157562E500031119 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		AD0F69F2157562E500031119 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
-		AD0F69F3157562E500031119 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AD0F69EE157562E500031119 /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		AD0F69F6157562E500031119 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		AD0F6A011575644900031119 /* iBackupFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iBackupFileSystem.h; sourceTree = "<group>"; };
+		AD0F6A021575644900031119 /* iBackupFileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iBackupFileSystem.m; sourceTree = "<group>"; };
+		AD0F6A041575672E00031119 /* OSXFUSE.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSXFUSE.framework; path = /Developer/SDKs/MacOSX10.5.sdk/Library/Frameworks/OSXFUSE.framework; sourceTree = "<absolute>"; };
+		AD0F6A0A1575689100031119 /* ChangeLog */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 8; lastKnownFileType = text; path = ChangeLog; sourceTree = "<group>"; tabWidth = 8; };
+		AD0F6A0B1575689100031119 /* FUSEObjectFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUSEObjectFileSystem.h; sourceTree = "<group>"; };
+		AD0F6A0C1575689100031119 /* FUSEObjectFileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUSEObjectFileSystem.m; sourceTree = "<group>"; };
+		AD0F6A0D1575689100031119 /* FUSEOFSAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUSEOFSAppController.h; sourceTree = "<group>"; };
+		AD0F6A0E1575689100031119 /* FUSEOFSAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUSEOFSAppController.m; sourceTree = "<group>"; };
+		AD0F6A0F1575689100031119 /* FUSEOFSFileProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUSEOFSFileProxy.h; sourceTree = "<group>"; };
+		AD0F6A101575689100031119 /* FUSEOFSFileProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUSEOFSFileProxy.m; sourceTree = "<group>"; };
+		AD0F6A111575689100031119 /* FUSEOFSLookupContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUSEOFSLookupContext.h; sourceTree = "<group>"; };
+		AD0F6A121575689100031119 /* FUSEOFSLookupContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUSEOFSLookupContext.m; sourceTree = "<group>"; };
+		AD0F6A131575689100031119 /* FUSEOFSMemoryContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUSEOFSMemoryContainer.h; sourceTree = "<group>"; };
+		AD0F6A141575689100031119 /* FUSEOFSMemoryContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUSEOFSMemoryContainer.m; sourceTree = "<group>"; };
+		AD0F6A151575689100031119 /* FUSEOFSMemoryFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUSEOFSMemoryFile.h; sourceTree = "<group>"; };
+		AD0F6A161575689100031119 /* FUSEOFSMemoryFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUSEOFSMemoryFile.m; sourceTree = "<group>"; };
+		AD0F6A171575689100031119 /* FUSEOFSMemoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUSEOFSMemoryObject.h; sourceTree = "<group>"; };
+		AD0F6A181575689100031119 /* FUSEOFSMemoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUSEOFSMemoryObject.m; sourceTree = "<group>"; };
+		AD0F6A191575689100031119 /* FUSESupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUSESupport.h; sourceTree = "<group>"; };
+		AD0F6A241575689100031119 /* NSObject+FUSEOFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FUSEOFS.h"; sourceTree = "<group>"; };
+		AD0F6A251575689100031119 /* NSObject+FUSEOFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FUSEOFS.m"; sourceTree = "<group>"; };
+		AD0F6A3415756EB100031119 /* iBackupSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iBackupSet.h; sourceTree = "<group>"; };
+		AD0F6A3515756EB100031119 /* iBackupSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iBackupSet.m; sourceTree = "<group>"; };
+		AD0F6A371575751100031119 /* iBackup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iBackup.h; sourceTree = "<group>"; };
+		AD0F6A381575751100031119 /* iBackup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iBackup.m; sourceTree = "<group>"; };
+		AD0F6A3A157584EE00031119 /* iBackupObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iBackupObject.h; sourceTree = "<group>"; };
+		AD0F6A3B157584EE00031119 /* iBackupObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iBackupObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD0F6A051575672E00031119 /* OSXFUSE.framework in Frameworks */,
 				AD0F69E1157562E500031119 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,7 +81,9 @@
 		AD0F69D1157562E500031119 = {
 			isa = PBXGroup;
 			children = (
+				AD0F6A091575689100031119 /* FUSEOFS */,
 				AD0F69E6157562E500031119 /* iBackupFS */,
+				AD0F6A00157563E000031119 /* Resources */,
 				AD0F69DF157562E500031119 /* Frameworks */,
 				AD0F69DD157562E500031119 /* Products */,
 			);
@@ -63,6 +100,7 @@
 		AD0F69DF157562E500031119 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AD0F6A041575672E00031119 /* OSXFUSE.framework */,
 				AD0F69E0157562E500031119 /* Cocoa.framework */,
 				AD0F69E2157562E500031119 /* Other Frameworks */,
 			);
@@ -82,24 +120,53 @@
 		AD0F69E6157562E500031119 /* iBackupFS */ = {
 			isa = PBXGroup;
 			children = (
-				AD0F69F2157562E500031119 /* AppDelegate.h */,
-				AD0F69F3157562E500031119 /* AppDelegate.m */,
-				AD0F69F5157562E500031119 /* MainMenu.xib */,
-				AD0F69E7157562E500031119 /* Supporting Files */,
+				AD0F69EE157562E500031119 /* common.h */,
+				AD0F6A011575644900031119 /* iBackupFileSystem.h */,
+				AD0F6A021575644900031119 /* iBackupFileSystem.m */,
+				AD0F6A3415756EB100031119 /* iBackupSet.h */,
+				AD0F6A3515756EB100031119 /* iBackupSet.m */,
+				AD0F6A371575751100031119 /* iBackup.h */,
+				AD0F6A381575751100031119 /* iBackup.m */,
+				AD0F6A3A157584EE00031119 /* iBackupObject.h */,
+				AD0F6A3B157584EE00031119 /* iBackupObject.m */,
+				AD0F69EC157562E500031119 /* main.m */,
 			);
 			path = iBackupFS;
 			sourceTree = "<group>";
 		};
-		AD0F69E7157562E500031119 /* Supporting Files */ = {
+		AD0F6A00157563E000031119 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AD0F69F5157562E500031119 /* MainMenu.xib */,
 				AD0F69E8157562E500031119 /* iBackupFS-Info.plist */,
-				AD0F69E9157562E500031119 /* InfoPlist.strings */,
-				AD0F69EC157562E500031119 /* main.m */,
-				AD0F69EE157562E500031119 /* iBackupFS-Prefix.pch */,
-				AD0F69EF157562E500031119 /* Credits.rtf */,
 			);
-			name = "Supporting Files";
+			name = Resources;
+			path = iBackupFS;
+			sourceTree = "<group>";
+		};
+		AD0F6A091575689100031119 /* FUSEOFS */ = {
+			isa = PBXGroup;
+			children = (
+				AD0F6A0A1575689100031119 /* ChangeLog */,
+				AD0F6A191575689100031119 /* FUSESupport.h */,
+				AD0F6A241575689100031119 /* NSObject+FUSEOFS.h */,
+				AD0F6A251575689100031119 /* NSObject+FUSEOFS.m */,
+				AD0F6A0D1575689100031119 /* FUSEOFSAppController.h */,
+				AD0F6A0E1575689100031119 /* FUSEOFSAppController.m */,
+				AD0F6A0B1575689100031119 /* FUSEObjectFileSystem.h */,
+				AD0F6A0C1575689100031119 /* FUSEObjectFileSystem.m */,
+				AD0F6A111575689100031119 /* FUSEOFSLookupContext.h */,
+				AD0F6A121575689100031119 /* FUSEOFSLookupContext.m */,
+				AD0F6A0F1575689100031119 /* FUSEOFSFileProxy.h */,
+				AD0F6A101575689100031119 /* FUSEOFSFileProxy.m */,
+				AD0F6A171575689100031119 /* FUSEOFSMemoryObject.h */,
+				AD0F6A181575689100031119 /* FUSEOFSMemoryObject.m */,
+				AD0F6A151575689100031119 /* FUSEOFSMemoryFile.h */,
+				AD0F6A161575689100031119 /* FUSEOFSMemoryFile.m */,
+				AD0F6A131575689100031119 /* FUSEOFSMemoryContainer.h */,
+				AD0F6A141575689100031119 /* FUSEOFSMemoryContainer.m */,
+			);
+			path = FUSEOFS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,9 +220,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD0F69EB157562E500031119 /* InfoPlist.strings in Resources */,
-				AD0F69F1157562E500031119 /* Credits.rtf in Resources */,
 				AD0F69F7157562E500031119 /* MainMenu.xib in Resources */,
+				AD0F6A261575689100031119 /* ChangeLog in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,29 +233,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD0F69ED157562E500031119 /* main.m in Sources */,
-				AD0F69F4157562E500031119 /* AppDelegate.m in Sources */,
+				AD0F6A031575644900031119 /* iBackupFileSystem.m in Sources */,
+				AD0F6A271575689100031119 /* FUSEObjectFileSystem.m in Sources */,
+				AD0F6A281575689100031119 /* FUSEOFSAppController.m in Sources */,
+				AD0F6A291575689100031119 /* FUSEOFSFileProxy.m in Sources */,
+				AD0F6A2A1575689100031119 /* FUSEOFSLookupContext.m in Sources */,
+				AD0F6A2B1575689100031119 /* FUSEOFSMemoryContainer.m in Sources */,
+				AD0F6A2C1575689100031119 /* FUSEOFSMemoryFile.m in Sources */,
+				AD0F6A2D1575689100031119 /* FUSEOFSMemoryObject.m in Sources */,
+				AD0F6A331575689100031119 /* NSObject+FUSEOFS.m in Sources */,
+				AD0F6A3615756EB100031119 /* iBackupSet.m in Sources */,
+				AD0F6A391575751100031119 /* iBackup.m in Sources */,
+				AD0F6A3C157584EE00031119 /* iBackupObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AD0F69E9157562E500031119 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AD0F69EA157562E500031119 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		AD0F69EF157562E500031119 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AD0F69F0157562E500031119 /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
 		AD0F69F5157562E500031119 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -249,10 +310,15 @@
 		AD0F69FB157562E500031119 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				FRAMEWORK_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iBackupFS/iBackupFS-Prefix.pch";
+				GCC_PREFIX_HEADER = iBackupFS/common.h;
 				INFOPLIST_FILE = "iBackupFS/iBackupFS-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.5;
+				VALID_ARCHS = "i386 ppc";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -260,10 +326,15 @@
 		AD0F69FC157562E500031119 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				FRAMEWORK_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iBackupFS/iBackupFS-Prefix.pch";
+				GCC_PREFIX_HEADER = iBackupFS/common.h;
 				INFOPLIST_FILE = "iBackupFS/iBackupFS-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.5;
+				VALID_ARCHS = "i386 ppc";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -287,6 +358,7 @@
 				AD0F69FC157562E500031119 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

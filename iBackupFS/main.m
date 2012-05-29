@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Mulle kybernetiK. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <AppKit/AppKit.h>
 
 int main(int argc, char *argv[])
 {
