@@ -16,6 +16,8 @@
 	NSMutableDictionary *contentMap;
 }
 
++ (NSString *)properPathFromDomain:(NSString *)_domain relativePath:(NSString *)_path;
+
 - (id)initWithPath:(NSString *)_path;
 
 - (NSString *)displayName;

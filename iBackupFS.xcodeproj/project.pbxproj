@@ -24,6 +24,12 @@
 		AD0F6A3615756EB100031119 /* iBackupSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A3515756EB100031119 /* iBackupSet.m */; };
 		AD0F6A391575751100031119 /* iBackup.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A381575751100031119 /* iBackup.m */; };
 		AD0F6A3C157584EE00031119 /* iBackupObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A3B157584EE00031119 /* iBackupObject.m */; };
+		AD0F6A3E157591BB00031119 /* NOTES.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD0F6A3D157591BB00031119 /* NOTES.txt */; };
+		AD0F6A401575924700031119 /* Version in Resources */ = {isa = PBXBuildFile; fileRef = AD0F6A3F1575924600031119 /* Version */; };
+		AD0F6A431575957100031119 /* MBDBReader.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A421575957100031119 /* MBDBReader.m */; };
+		AD0F6A46157597D800031119 /* NSMutableDictionary+iBackupFS.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A45157597D800031119 /* NSMutableDictionary+iBackupFS.m */; };
+		AD0F6A491575A1AC00031119 /* NSString+iBackupFS.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A481575A1AC00031119 /* NSString+iBackupFS.m */; };
+		AD0F6A4B1575B1EB00031119 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0F6A4A1575B1EB00031119 /* libcrypto.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +69,15 @@
 		AD0F6A381575751100031119 /* iBackup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iBackup.m; sourceTree = "<group>"; };
 		AD0F6A3A157584EE00031119 /* iBackupObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iBackupObject.h; sourceTree = "<group>"; };
 		AD0F6A3B157584EE00031119 /* iBackupObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iBackupObject.m; sourceTree = "<group>"; };
+		AD0F6A3D157591BB00031119 /* NOTES.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOTES.txt; sourceTree = "<group>"; };
+		AD0F6A3F1575924600031119 /* Version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Version; sourceTree = "<group>"; };
+		AD0F6A411575957100031119 /* MBDBReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDBReader.h; sourceTree = "<group>"; };
+		AD0F6A421575957100031119 /* MBDBReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBDBReader.m; sourceTree = "<group>"; };
+		AD0F6A44157597D700031119 /* NSMutableDictionary+iBackupFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+iBackupFS.h"; sourceTree = "<group>"; };
+		AD0F6A45157597D800031119 /* NSMutableDictionary+iBackupFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+iBackupFS.m"; sourceTree = "<group>"; };
+		AD0F6A471575A1AC00031119 /* NSString+iBackupFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+iBackupFS.h"; sourceTree = "<group>"; };
+		AD0F6A481575A1AC00031119 /* NSString+iBackupFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+iBackupFS.m"; sourceTree = "<group>"; };
+		AD0F6A4A1575B1EB00031119 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = ../../../../../Developer/SDKs/MacOSX10.5.sdk/usr/lib/libcrypto.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD0F6A4B1575B1EB00031119 /* libcrypto.dylib in Frameworks */,
 				AD0F6A051575672E00031119 /* OSXFUSE.framework in Frameworks */,
 				AD0F69E1157562E500031119 /* Cocoa.framework in Frameworks */,
 			);
@@ -81,6 +97,9 @@
 		AD0F69D1157562E500031119 = {
 			isa = PBXGroup;
 			children = (
+				AD0F6A4A1575B1EB00031119 /* libcrypto.dylib */,
+				AD0F6A3D157591BB00031119 /* NOTES.txt */,
+				AD0F6A3F1575924600031119 /* Version */,
 				AD0F6A091575689100031119 /* FUSEOFS */,
 				AD0F69E6157562E500031119 /* iBackupFS */,
 				AD0F6A00157563E000031119 /* Resources */,
@@ -129,6 +148,12 @@
 				AD0F6A381575751100031119 /* iBackup.m */,
 				AD0F6A3A157584EE00031119 /* iBackupObject.h */,
 				AD0F6A3B157584EE00031119 /* iBackupObject.m */,
+				AD0F6A411575957100031119 /* MBDBReader.h */,
+				AD0F6A421575957100031119 /* MBDBReader.m */,
+				AD0F6A44157597D700031119 /* NSMutableDictionary+iBackupFS.h */,
+				AD0F6A45157597D800031119 /* NSMutableDictionary+iBackupFS.m */,
+				AD0F6A471575A1AC00031119 /* NSString+iBackupFS.h */,
+				AD0F6A481575A1AC00031119 /* NSString+iBackupFS.m */,
 				AD0F69EC157562E500031119 /* main.m */,
 			);
 			path = iBackupFS;
@@ -222,6 +247,8 @@
 			files = (
 				AD0F69F7157562E500031119 /* MainMenu.xib in Resources */,
 				AD0F6A261575689100031119 /* ChangeLog in Resources */,
+				AD0F6A3E157591BB00031119 /* NOTES.txt in Resources */,
+				AD0F6A401575924700031119 /* Version in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +272,9 @@
 				AD0F6A3615756EB100031119 /* iBackupSet.m in Sources */,
 				AD0F6A391575751100031119 /* iBackup.m in Sources */,
 				AD0F6A3C157584EE00031119 /* iBackupObject.m in Sources */,
+				AD0F6A431575957100031119 /* MBDBReader.m in Sources */,
+				AD0F6A46157597D800031119 /* NSMutableDictionary+iBackupFS.m in Sources */,
+				AD0F6A491575A1AC00031119 /* NSString+iBackupFS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

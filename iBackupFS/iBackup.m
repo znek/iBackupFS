@@ -8,17 +8,60 @@
 
 #import "iBackup.h"
 #import "NSObject+FUSEOFS.h"
+#import "NSMutableDictionary+iBackupFS.h"
 #import "iBackupObject.h"
+#import "MBDBReader.h"
 
 @interface iBackup (Private)
 - (void)_setupOnce;
 - (void)_setup;
 - (void)_setupVersion2;
 - (void)_setupVersion3;
-- (void)_addContentObject:(id)_obj path:(NSString *)_path;
 @end
 
 @implementation iBackup
+
+static NSMutableDictionary *replaceMap = nil;
+
++ (void)initialize {
+	static BOOL didInit = NO;
+	if (didInit) return;
+	didInit = YES;
+
+	replaceMap = [[NSMutableDictionary alloc] init];
+	[replaceMap setObject:@"Applications/" forKey:@"AppDomain-"];
+	[replaceMap setObject:@"Camera" forKey:@"CameraRollDomain"];
+	[replaceMap setObject:@"Home" forKey:@"HomeDomain"];
+	[replaceMap setObject:@"Keychains" forKey:@"KeychainDomain"];
+	[replaceMap setObject:@"Media" forKey:@"MediaDomain"];
+	[replaceMap setObject:@"Mobile Device" forKey:@"MobileDeviceDomain"];
+	[replaceMap setObject:@"Root" forKey:@"RootDomain"];
+	[replaceMap setObject:@"Preferences" forKey:@"SystemPreferencesDomain"];
+	[replaceMap setObject:@"Wireless" forKey:@"WirelessDomain"];
+}
+
++ (NSString *)properPathFromDomain:(NSString *)_domain relativePath:(NSString *)_path {
+	NSString *path = nil;
+
+	if (_domain) {
+		path = [[_domain copy] autorelease];
+	
+		for (NSString *key in [replaceMap allKeys]) {
+			NSRange r = [_domain rangeOfString:key];
+			if (r.location != NSNotFound) {
+				path = [replaceMap objectForKey:key];
+				path = [path stringByAppendingString:[_domain substringFromIndex:NSMaxRange(r)]];
+				break;
+			}
+		}
+		if (_path)
+			path = [path stringByAppendingPathComponent:_path];
+	}
+	else {
+		path = [[_path copy] autorelease];
+	}
+	return path;
+}
 
 - (id)initWithPath:(NSString *)_path {
 	self = [self init];
@@ -46,7 +89,7 @@
 
 - (void)_setup {
 	NSFileManager *fm = [NSFileManager defaultManager];
-	if ([fm fileExistsAtPath:[self->path stringByAppendingPathComponent:@"Manifest.mdbd"]]) {
+	if ([fm fileExistsAtPath:[self->path stringByAppendingPathComponent:@"Manifest.mbdb"]]) {
 		[self _setupVersion3];
 	}
 	else {
@@ -71,12 +114,16 @@
 			
 			NSString *contentPath = [metaInfo objectForKey:@"Path"];
 			if (contentPath) {
-				// old format
 				NSString *objPath = [self->path stringByAppendingPathComponent:
 									            [[name stringByDeletingPathExtension]
 												       stringByAppendingPathExtension:@"mddata"]];
 				iBackupObject *obj = [[iBackupObject alloc] initWithPath:objPath];
-				[self _addContentObject:obj path:contentPath];
+				
+				NSString *domain = [metaInfo objectForKey:@"Domain"];
+
+				[self->contentMap addContentObject:obj
+								  path:[[self class] properPathFromDomain:domain
+													 relativePath:contentPath]];
 				[obj release];
 			}
 		}
@@ -85,32 +132,21 @@
 			NSDictionary *metaInfo    = [NSDictionary dictionaryWithContentsOfFile:metaPath];
 			NSString     *contentPath = [metaInfo objectForKey:@"Path"];
 			if (contentPath) {
-				[self _addContentObject:[metaInfo objectForKey:@"Data"]
-					  path:contentPath];
+				NSString *domain = [metaInfo objectForKey:@"Domain"];
+				
+				[self->contentMap addContentObject:[metaInfo objectForKey:@"Data"]
+					              path:[[self class] properPathFromDomain:domain
+													 relativePath:contentPath]];
 			}
 		}
 	}
 }
 
 - (void)_setupVersion3 {
-}
-
-- (void)_addContentObject:(id)_obj path:(NSString *)_path {
-	NSArray *components = [_path componentsSeparatedByString:@"/"];
-	NSUInteger i, count = [components count];
-	NSMutableDictionary *current = self->contentMap;
-
-	for (i = 0; i < (count - 1); i++) {
-		NSString *pc = [components objectAtIndex:i];
-		NSMutableDictionary *next = [current objectForKey:pc];
-		if (!next) {
-			next = [[NSMutableDictionary alloc] init];
-			[current setObject:next forKey:pc];
-			[next release];
-		}
-		current = next;
-	}
-	[current setObject:_obj forKey:[components lastObject]];
+	NSString   *mbdbPath   = [self->path stringByAppendingPathComponent:@"Manifest.mbdb"];
+	MBDBReader *mbdbReader = [[MBDBReader alloc] initWithPath:mbdbPath];
+	[self->contentMap addEntriesFromDictionary:[mbdbReader contentMap]];
+	[MBDBReader release];
 }
 
 - (NSString *)displayName {
