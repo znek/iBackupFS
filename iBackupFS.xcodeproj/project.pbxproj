@@ -342,12 +342,15 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				FRAMEWORK_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iBackupFS/common.h;
 				INFOPLIST_FILE = "iBackupFS/iBackupFS-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.5;
+				SYMROOT = /tmp/MulleDeploymentProducts;
 				VALID_ARCHS = "i386 ppc";
 				WRAPPER_EXTENSION = app;
 			};
@@ -357,13 +360,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				DSTROOT = /;
 				FRAMEWORK_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iBackupFS/common.h;
 				INFOPLIST_FILE = "iBackupFS/iBackupFS-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.5;
+				SYMROOT = /tmp/MulleDeploymentProducts;
 				VALID_ARCHS = "i386 ppc";
 				WRAPPER_EXTENSION = app;
 			};
