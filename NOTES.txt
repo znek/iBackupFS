@@ -32,3 +32,8 @@ Property is a couple of strings:
 
 A string is composed of a uint16 that contains the length in bytes or 0xFFFF (for null or N/A) then the characters, in UTF-8 with canonical decomposition (Unicode normalization form D).
 
+
+Mode:
+                 Axxx  symbolic link
+                 4xxx  directory
+                 8xxx  regular file
