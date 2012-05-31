@@ -66,10 +66,11 @@ static NSMutableDictionary *replaceMap = nil;
 - (id)initWithPath:(NSString *)_path {
 	self = [self init];
 	if (self) {
-		self->needsSetup = YES;
 		self->path       = [_path copy];
 		self->info       = [[NSDictionary dictionaryWithContentsOfFile:[_path stringByAppendingPathComponent:@"Info.plist"]] copy];
 		self->contentMap = [[NSMutableDictionary alloc] init];
+		self->isCurrent  = [_path rangeOfString:@"-"].location == NSNotFound;
+		self->needsSetup = YES;
 	}
 	return self;
 }
@@ -149,9 +150,14 @@ static NSMutableDictionary *replaceMap = nil;
 	[MBDBReader release];
 }
 
+
 - (NSString *)displayName {
-	return [[self->info valueForKey:@"Last Backup Date"] description];
+	NSDate *d = [self->info valueForKey:@"Last Backup Date"];
+	NSCalendarDate *date = [d dateWithCalendarFormat:@"%Y%m%d-%H%M%S"
+							  timeZone:[NSTimeZone localTimeZone]];
+	return [date description];
 }
+
 
 /* FUSEOFS */
 
@@ -167,6 +173,15 @@ static NSMutableDictionary *replaceMap = nil;
 
 - (BOOL)isContainer {
 	return YES;
+}
+
+- (NSDictionary *)finderAttributes {
+	if (!self->isCurrent)
+		return [super finderAttributes];
+
+	NSNumber *finderFlags = [NSNumber numberWithShort:kColor];
+	return [NSDictionary dictionaryWithObject:finderFlags
+						 forKey:kGMUserFileSystemFinderFlagsKey];
 }
 
 @end

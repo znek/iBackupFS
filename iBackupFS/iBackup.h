@@ -10,10 +10,11 @@
 
 @interface iBackup : NSObject
 {
-	BOOL needsSetup;
 	NSString *path;
 	NSDictionary *info;
 	NSMutableDictionary *contentMap;
+	BOOL isCurrent;
+	BOOL needsSetup;
 }
 
 + (NSString *)properPathFromDomain:(NSString *)_domain relativePath:(NSString *)_path;
