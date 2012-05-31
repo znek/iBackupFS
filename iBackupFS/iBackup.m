@@ -179,7 +179,17 @@ static NSMutableDictionary *replaceMap = nil;
 	if (!self->isCurrent)
 		return [super finderAttributes];
 
-	NSNumber *finderFlags = [NSNumber numberWithShort:kColor];
+	enum {
+		kFinderLabelColorGrey   = 0x02,
+		kFinderLabelColorGreen  = 0x04,
+		kFinderLabelColorPurple = 0x06,
+		kFinderLabelColorBlue   = 0x08,
+		kFinderLabelColorYellow = 0x0A,
+		kFinderLabelColorRed    = 0x0C,
+		kFinderLabelColorOrange = 0x0E
+	};
+
+	NSNumber *finderFlags = [NSNumber numberWithShort:kFinderLabelColorGreen];
 	return [NSDictionary dictionaryWithObject:finderFlags
 						 forKey:kGMUserFileSystemFinderFlagsKey];
 }
