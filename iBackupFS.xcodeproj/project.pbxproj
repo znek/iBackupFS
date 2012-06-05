@@ -12,7 +12,6 @@
 		AD0F69F7157562E500031119 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0F69F5157562E500031119 /* MainMenu.xib */; };
 		AD0F6A031575644900031119 /* iBackupFileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A021575644900031119 /* iBackupFileSystem.m */; };
 		AD0F6A051575672E00031119 /* OSXFUSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0F6A041575672E00031119 /* OSXFUSE.framework */; };
-		AD0F6A261575689100031119 /* ChangeLog in Resources */ = {isa = PBXBuildFile; fileRef = AD0F6A0A1575689100031119 /* ChangeLog */; };
 		AD0F6A271575689100031119 /* FUSEObjectFileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A0C1575689100031119 /* FUSEObjectFileSystem.m */; };
 		AD0F6A281575689100031119 /* FUSEOFSAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A0E1575689100031119 /* FUSEOFSAppController.m */; };
 		AD0F6A291575689100031119 /* FUSEOFSFileProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A101575689100031119 /* FUSEOFSFileProxy.m */; };
@@ -24,8 +23,6 @@
 		AD0F6A3615756EB100031119 /* iBackupSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A3515756EB100031119 /* iBackupSet.m */; };
 		AD0F6A391575751100031119 /* iBackup.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A381575751100031119 /* iBackup.m */; };
 		AD0F6A3C157584EE00031119 /* iBackupObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A3B157584EE00031119 /* iBackupObject.m */; };
-		AD0F6A3E157591BB00031119 /* NOTES.txt in Resources */ = {isa = PBXBuildFile; fileRef = AD0F6A3D157591BB00031119 /* NOTES.txt */; };
-		AD0F6A401575924700031119 /* Version in Resources */ = {isa = PBXBuildFile; fileRef = AD0F6A3F1575924600031119 /* Version */; };
 		AD0F6A431575957100031119 /* MBDBReader.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A421575957100031119 /* MBDBReader.m */; };
 		AD0F6A46157597D800031119 /* NSMutableDictionary+iBackupFS.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A45157597D800031119 /* NSMutableDictionary+iBackupFS.m */; };
 		AD0F6A491575A1AC00031119 /* NSString+iBackupFS.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A481575A1AC00031119 /* NSString+iBackupFS.m */; };
@@ -77,7 +74,7 @@
 		AD0F6A45157597D800031119 /* NSMutableDictionary+iBackupFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+iBackupFS.m"; sourceTree = "<group>"; };
 		AD0F6A471575A1AC00031119 /* NSString+iBackupFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+iBackupFS.h"; sourceTree = "<group>"; };
 		AD0F6A481575A1AC00031119 /* NSString+iBackupFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+iBackupFS.m"; sourceTree = "<group>"; };
-		AD0F6A4A1575B1EB00031119 /* libcrypto.dylib */ = {isa = PBXFileReference; name = libcrypto.dylib; path = /Developer/SDKs/MacOSX10.5.sdk/usr/lib/libcrypto.dylib; sourceTree = "<absolute>"; };
+		AD0F6A4A1575B1EB00031119 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = /Developer/SDKs/MacOSX10.5.sdk/usr/lib/libcrypto.dylib; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +198,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD0F69FA157562E500031119 /* Build configuration list for PBXNativeTarget "iBackupFS" */;
 			buildPhases = (
+				AD38C936157E077A00891748 /* Update Version Information */,
 				AD0F69D8157562E500031119 /* Sources */,
 				AD0F69D9157562E500031119 /* Frameworks */,
 				AD0F69DA157562E500031119 /* Resources */,
@@ -246,13 +244,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD0F69F7157562E500031119 /* MainMenu.xib in Resources */,
-				AD0F6A261575689100031119 /* ChangeLog in Resources */,
-				AD0F6A3E157591BB00031119 /* NOTES.txt in Resources */,
-				AD0F6A401575924700031119 /* Version in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AD38C936157E077A00891748 /* Update Version Information */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Update Version Information";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nTMP_SUBST_FILE_PATH=/tmp/iBackupFS-Info.$$\n\n# retrieve the current version information\n. Version\n\necho \"Version --> v${MAJOR_VERSION}.${MINOR_VERSION}.${SUBMINOR_VERSION}\"\n\ncp \"${INFOPLIST_FILE}\" \"${TMP_SUBST_FILE_PATH}\"\nsed -e \"s/\\([1234567890]*\\)\\.\\([1234567890]*\\)\\.\\([1234567890abrc]*\\)/${MAJOR_VERSION}\\.${MINOR_VERSION}\\.${SUBMINOR_VERSION}/g\" -e \"s/PropertyList-.*dtd/PropertyList-1.0.dtd/\" \"${TMP_SUBST_FILE_PATH}\" > \"${INFOPLIST_FILE}\"\nrm -f \"${TMP_SUBST_FILE_PATH}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AD0F69D8157562E500031119 /* Sources */ = {
