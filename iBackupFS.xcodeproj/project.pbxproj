@@ -226,6 +226,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = AD0F69D1157562E500031119;
@@ -353,18 +354,18 @@
 		AD0F69FB157562E500031119 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				FRAMEWORK_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iBackupFS/common.h;
 				INFOPLIST_FILE = "iBackupFS/iBackupFS-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx;
 				SYMROOT = /tmp/MulleDeploymentProducts;
-				VALID_ARCHS = "i386 ppc";
+				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -372,7 +373,7 @@
 		AD0F69FC157562E500031119 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				COPY_PHASE_STRIP = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DEPLOYMENT_POSTPROCESSING = YES;
@@ -383,11 +384,11 @@
 				GCC_PREFIX_HEADER = iBackupFS/common.h;
 				INFOPLIST_FILE = "iBackupFS/iBackupFS-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx;
 				SYMROOT = /tmp/MulleDeploymentProducts;
-				VALID_ARCHS = "i386 ppc";
+				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
