@@ -38,13 +38,13 @@ static NSString *backupPath = nil;
 		NSString *path = [backupPath stringByAppendingPathComponent:name];
 		BOOL isDir;
 		if ([fm fileExistsAtPath:path isDirectory:&isDir] && isDir) {
-			if ([name rangeOfString:@"-"].location == NSNotFound) {
-				iBackupSet *bs = [[iBackupSet alloc] initWithPath:path];
-				[self->backupSetMap setObject:bs
-									forKey:[[bs displayName]
-											    properlyEscapedFSRepresentation]];
-				[bs release];
-			}
+			iBackupSet *bs = [[iBackupSet alloc] initWithPath:path];
+			if (bs == nil)
+				continue;
+			[self->backupSetMap setObject:bs
+								forKey:[[bs displayName]
+											properlyEscapedFSRepresentation]];
+			[bs release];
 		}
 	}
 }
