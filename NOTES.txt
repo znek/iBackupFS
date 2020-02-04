@@ -1,3 +1,6 @@
+https://stackoverflow.com/questions/1498342/how-to-decrypt-an-encrypted-apple-itunes-iphone-backup
+https://blog.erratasec.com/2020/01/how-to-decrypt-whatsapp-end-to-end.html
+
 [Source: http://code.google.com/p/iphonebackupbrowser/wiki/MbdbMbdxFormat]
 
 
