@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD07177B23E86092004399DD /* ManifestReader.m in Sources */ = {isa = PBXBuildFile; fileRef = AD07177A23E86092004399DD /* ManifestReader.m */; };
+		AD07177E23E86B7A004399DD /* Keybag.m in Sources */ = {isa = PBXBuildFile; fileRef = AD07177D23E86B7A004399DD /* Keybag.m */; };
+		AD07178023E8D1E4004399DD /* Encrypted.md in Resources */ = {isa = PBXBuildFile; fileRef = AD07177F23E8CE5D004399DD /* Encrypted.md */; };
 		AD0F69E1157562E500031119 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0F69E0157562E500031119 /* Cocoa.framework */; };
 		AD0F69ED157562E500031119 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F69EC157562E500031119 /* main.m */; };
 		AD0F69F7157562E500031119 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0F69F5157562E500031119 /* MainMenu.xib */; };
@@ -30,6 +33,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD07177923E86092004399DD /* ManifestReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManifestReader.h; sourceTree = "<group>"; };
+		AD07177A23E86092004399DD /* ManifestReader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManifestReader.m; sourceTree = "<group>"; };
+		AD07177C23E86B7A004399DD /* Keybag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Keybag.h; sourceTree = "<group>"; };
+		AD07177D23E86B7A004399DD /* Keybag.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Keybag.m; sourceTree = "<group>"; };
+		AD07177F23E8CE5D004399DD /* Encrypted.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Encrypted.md; sourceTree = "<group>"; };
 		AD0F69DC157562E500031119 /* iBackupFS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBackupFS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD0F69E0157562E500031119 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AD0F69E3157562E500031119 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -147,6 +155,10 @@
 				AD0F6A3B157584EE00031119 /* iBackupObject.m */,
 				AD0F6A411575957100031119 /* MBDBReader.h */,
 				AD0F6A421575957100031119 /* MBDBReader.m */,
+				AD07177923E86092004399DD /* ManifestReader.h */,
+				AD07177A23E86092004399DD /* ManifestReader.m */,
+				AD07177C23E86B7A004399DD /* Keybag.h */,
+				AD07177D23E86B7A004399DD /* Keybag.m */,
 				AD0F6A44157597D700031119 /* NSMutableDictionary+iBackupFS.h */,
 				AD0F6A45157597D800031119 /* NSMutableDictionary+iBackupFS.m */,
 				AD0F6A471575A1AC00031119 /* NSString+iBackupFS.h */,
@@ -161,6 +173,7 @@
 			children = (
 				AD0F69F5157562E500031119 /* MainMenu.xib */,
 				AD0F69E8157562E500031119 /* iBackupFS-Info.plist */,
+				AD07177F23E8CE5D004399DD /* Encrypted.md */,
 			);
 			name = Resources;
 			path = iBackupFS;
@@ -245,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD0F69F7157562E500031119 /* MainMenu.xib in Resources */,
+				AD07178023E8D1E4004399DD /* Encrypted.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +289,7 @@
 			files = (
 				AD0F69ED157562E500031119 /* main.m in Sources */,
 				AD0F6A031575644900031119 /* iBackupFileSystem.m in Sources */,
+				AD07177E23E86B7A004399DD /* Keybag.m in Sources */,
 				AD0F6A271575689100031119 /* FUSEObjectFileSystem.m in Sources */,
 				AD0F6A281575689100031119 /* FUSEOFSAppController.m in Sources */,
 				AD0F6A291575689100031119 /* FUSEOFSFileProxy.m in Sources */,
@@ -284,6 +299,7 @@
 				AD0F6A2D1575689100031119 /* FUSEOFSMemoryObject.m in Sources */,
 				AD0F6A331575689100031119 /* NSObject+FUSEOFS.m in Sources */,
 				AD0F6A3615756EB100031119 /* iBackupSet.m in Sources */,
+				AD07177B23E86092004399DD /* ManifestReader.m in Sources */,
 				AD0F6A391575751100031119 /* iBackup.m in Sources */,
 				AD0F6A3C157584EE00031119 /* iBackupObject.m in Sources */,
 				AD0F6A431575957100031119 /* MBDBReader.m in Sources */,

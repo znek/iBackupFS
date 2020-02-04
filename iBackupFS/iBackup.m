@@ -11,6 +11,7 @@
 #import "NSMutableDictionary+iBackupFS.h"
 #import "iBackupObject.h"
 #import "MBDBReader.h"
+#import "ManifestReader.h"
 
 @interface iBackup (Private)
 - (void)_setupOnce;
@@ -90,6 +91,10 @@ static NSMutableDictionary *replaceMap = nil;
 
 - (void)_setup {
 	NSFileManager *fm = [NSFileManager defaultManager];
+	if ([fm fileExistsAtPath:[self->path stringByAppendingPathComponent:@"Manifest.plist"]]) {
+		[self _setupVersion4];
+	}
+	else
 	if ([fm fileExistsAtPath:[self->path stringByAppendingPathComponent:@"Manifest.mbdb"]]) {
 		[self _setupVersion3];
 	}
@@ -144,14 +149,23 @@ static NSMutableDictionary *replaceMap = nil;
 }
 
 - (void)_setupVersion3 {
-	NSString   *mbdbPath   = [self->path stringByAppendingPathComponent:@"Manifest.mbdb"];
-	MBDBReader *mbdbReader = [[MBDBReader alloc] initWithPath:mbdbPath];
-	[self->contentMap addEntriesFromDictionary:[mbdbReader contentMap]];
-	[MBDBReader release];
+	NSString   *dbPath = [self->path stringByAppendingPathComponent:@"Manifest.mbdb"];
+	MBDBReader *reader = [[MBDBReader alloc] initWithPath:dbPath];
+	[self->contentMap addEntriesFromDictionary:[reader contentMap]];
+	[reader release];
 }
 
+- (void)_setupVersion4 {
+	NSString *plistPath = [self->path stringByAppendingPathComponent:@"Manifest.plist"];
+	ManifestReader *reader = [[ManifestReader alloc] initWithPath:plistPath];
+	[self->contentMap addEntriesFromDictionary:[reader contentMap]];
+	[reader release];
+}
 
 - (NSString *)displayName {
+	NSString *name = [self->info valueForKey:@"Display Name"];
+	if (name)
+		return name;
 	NSDate *d = [self->info valueForKey:@"Last Backup Date"];
 	NSCalendarDate *date = [d dateWithCalendarFormat:@"%Y%m%d-%H%M%S"
 							  timeZone:[NSTimeZone localTimeZone]];

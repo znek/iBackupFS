@@ -34,14 +34,11 @@
 				NSString *backupPath = [path stringByAppendingPathComponent:name];
 				iBackup  *backup     = [[iBackup alloc] initWithPath:backupPath];
 
-				NSUInteger i = [name rangeOfString:@"-"].location;
-				NSString *key = (i == NSNotFound) ? [backup displayName]
-				                                  : [name substringFromIndex:i + 1];
-
-				if (key != nil) {
-					NSLog(@"Adding backup '%@'", key);
+				if (backup != nil) {
+					NSString *displayName = [backup displayName];
+					NSLog(@"Adding backup '%@'", displayName);
 					[self->backupMap setObject:backup
-									forKey:[key properlyEscapedFSRepresentation]];
+									 forKey:[displayName properlyEscapedFSRepresentation]];
 				}
 				else {
 					NSLog(@"Ignoring backup '%@'", backupPath);
