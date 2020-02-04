@@ -18,7 +18,9 @@ static NSString *backupPath = nil;
 	static BOOL didInit = NO;
 	if (didInit) return;
 	didInit = YES;
-	
+
+	NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+	backupPath = [[ud stringForKey:@"BackupPath"] copy];
 	if (!backupPath) {
 		backupPath = [[NSHomeDirectory() stringByAppendingString:
 					   @"/Library/Application Support/MobileSync/Backup"]
