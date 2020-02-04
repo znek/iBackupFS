@@ -26,7 +26,7 @@
 		AD0F6A3615756EB100031119 /* iBackupSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A3515756EB100031119 /* iBackupSet.m */; };
 		AD0F6A391575751100031119 /* iBackup.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A381575751100031119 /* iBackup.m */; };
 		AD0F6A3C157584EE00031119 /* iBackupObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A3B157584EE00031119 /* iBackupObject.m */; };
-		AD0F6A431575957100031119 /* MBDBReader.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A421575957100031119 /* MBDBReader.m */; };
+		AD0F6A431575957100031119 /* MBDBReader.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A421575957100031119 /* MBDBReader.m */; settings = {COMPILER_FLAGS = "-Wno-unused-variable"; }; };
 		AD0F6A46157597D800031119 /* NSMutableDictionary+iBackupFS.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A45157597D800031119 /* NSMutableDictionary+iBackupFS.m */; };
 		AD0F6A491575A1AC00031119 /* NSString+iBackupFS.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A481575A1AC00031119 /* NSString+iBackupFS.m */; };
 		ADC5D2FE23E9BEA200882760 /* libSystem.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC5D2FD23E9BEA200882760 /* libSystem.tbd */; };
