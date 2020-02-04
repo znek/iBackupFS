@@ -29,7 +29,7 @@
 		AD0F6A431575957100031119 /* MBDBReader.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A421575957100031119 /* MBDBReader.m */; };
 		AD0F6A46157597D800031119 /* NSMutableDictionary+iBackupFS.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A45157597D800031119 /* NSMutableDictionary+iBackupFS.m */; };
 		AD0F6A491575A1AC00031119 /* NSString+iBackupFS.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A481575A1AC00031119 /* NSString+iBackupFS.m */; };
-		AD0F6A4B1575B1EB00031119 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0F6A4A1575B1EB00031119 /* libcrypto.dylib */; };
+		ADC5D2FE23E9BEA200882760 /* libSystem.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC5D2FD23E9BEA200882760 /* libSystem.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,7 +82,7 @@
 		AD0F6A45157597D800031119 /* NSMutableDictionary+iBackupFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+iBackupFS.m"; sourceTree = "<group>"; };
 		AD0F6A471575A1AC00031119 /* NSString+iBackupFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+iBackupFS.h"; sourceTree = "<group>"; };
 		AD0F6A481575A1AC00031119 /* NSString+iBackupFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+iBackupFS.m"; sourceTree = "<group>"; };
-		AD0F6A4A1575B1EB00031119 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = /Developer/SDKs/MacOSX10.5.sdk/usr/lib/libcrypto.dylib; sourceTree = "<absolute>"; };
+		ADC5D2FD23E9BEA200882760 /* libSystem.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libSystem.tbd; path = usr/lib/libSystem.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD0F6A4B1575B1EB00031119 /* libcrypto.dylib in Frameworks */,
+				ADC5D2FE23E9BEA200882760 /* libSystem.tbd in Frameworks */,
 				AD0F6A051575672E00031119 /* OSXFUSE.framework in Frameworks */,
 				AD0F69E1157562E500031119 /* Cocoa.framework in Frameworks */,
 			);
@@ -123,9 +123,9 @@
 		AD0F69DF157562E500031119 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ADC5D2FD23E9BEA200882760 /* libSystem.tbd */,
 				AD0F69E0157562E500031119 /* Cocoa.framework */,
 				AD0F6A041575672E00031119 /* OSXFUSE.framework */,
-				AD0F6A4A1575B1EB00031119 /* libcrypto.dylib */,
 				AD0F69E2157562E500031119 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -378,6 +378,10 @@
 				INFOPLIST_FILE = "iBackupFS/iBackupFS-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SYMROOT = /tmp/MulleDeploymentProducts;
@@ -401,6 +405,10 @@
 				INFOPLIST_FILE = "iBackupFS/iBackupFS-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SYMROOT = /tmp/MulleDeploymentProducts;

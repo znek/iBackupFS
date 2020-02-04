@@ -7,19 +7,19 @@
 //
 
 #import "NSString+iBackupFS.h"
-#include <openssl/sha.h>
+#include <CommonCrypto/CommonCrypto.h>
 
 @implementation NSString (iBackupFS)
 
 - (NSString *)getSHA1HashedFilename {
-	unsigned char result[SHA_DIGEST_LENGTH];
+	unsigned char result[CC_SHA1_DIGEST_LENGTH];
 	
 	NSMutableString *digest = [[[NSMutableString alloc]
-								                 initWithCapacity:SHA_DIGEST_LENGTH * 2]
+								                 initWithCapacity:CC_SHA1_DIGEST_LENGTH * 2]
 							                     autorelease];
-	SHA1([self cString], [self cStringLength], result);
+	CC_SHA1([self cString], (CC_LONG)[self cStringLength], result);
 
-	for (NSUInteger i = 0; i < SHA_DIGEST_LENGTH; i++) {
+	for (NSUInteger i = 0; i < CC_SHA1_DIGEST_LENGTH; i++) {
 		[digest appendFormat:@"%02x", *(result + i)];
 	}
 	return digest;
