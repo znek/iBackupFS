@@ -37,6 +37,7 @@ static NSMutableDictionary *replaceMap = nil;
 	[replaceMap setObject:@"Media" forKey:@"MediaDomain"];
 	[replaceMap setObject:@"Mobile Device" forKey:@"MobileDeviceDomain"];
 	[replaceMap setObject:@"Root" forKey:@"RootDomain"];
+	[replaceMap setObject:@"Ringtones" forKey:@"TonesDomain"];
 	[replaceMap setObject:@"Preferences" forKey:@"SystemPreferencesDomain"];
 	[replaceMap setObject:@"Wireless" forKey:@"WirelessDomain"];
 }
