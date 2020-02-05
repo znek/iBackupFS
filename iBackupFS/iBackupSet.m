@@ -29,21 +29,35 @@
 		if (!names) {
 			NSLog(@"ERROR: %@", err);
 		}
+		NSMutableArray *backups = [NSMutableArray array];
 		for (NSString *name in names) {
 			if ([name rangeOfString:self->identifier].length != 0) {
 				NSString *backupPath = [path stringByAppendingPathComponent:name];
 				iBackup  *backup     = [[iBackup alloc] initWithPath:backupPath];
 
 				if (backup != nil) {
-					NSString *displayName = [backup displayName];
-					NSLog(@"Adding backup '%@'", displayName);
-					[self->backupMap setObject:backup
-									 forKey:[displayName properlyEscapedFSRepresentation]];
+					[backups addObject:backup];
 				}
 				else {
 					NSLog(@"Ignoring backup '%@'", backupPath);
 				}
 				[backup release];
+			}
+		}
+		if ([backups count] > 1) {
+			for (iBackup *backup in backups) {
+				NSString *displayName = [backup displayName];
+				[self->backupMap setObject:backup
+								 forKey:[displayName properlyEscapedFSRepresentation]];
+			}
+		}
+		else if ([backups count] == 1) {
+			iBackup *backup = backups[0];
+			id lookupContext = [backup lookupContext];
+			for (NSString *name in [backup containerContents]) {
+				NSObject *obj = [backup lookupPathComponent:name inContext:lookupContext];
+				[self->backupMap setObject:obj
+								 forKey:[name properlyEscapedFSRepresentation]];
 			}
 		}
 	}
