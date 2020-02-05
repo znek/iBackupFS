@@ -52,10 +52,9 @@
 			}
 		}
 		else if ([backups count] == 1) {
-			iBackup *backup = backups[0];
-			id lookupContext = [backup lookupContext];
-			for (NSString *name in [backup containerContents]) {
-				NSObject *obj = [backup lookupPathComponent:name inContext:lookupContext];
+			self->backup = [backups[0] retain];
+			for (NSString *name in [self->backup containerContents]) {
+				NSObject *obj = [self->backup lookupPathComponent:name inContext:nil];
 				[self->backupMap setObject:obj
 								 forKey:[name properlyEscapedFSRepresentation]];
 			}
@@ -68,6 +67,7 @@
 	[self->identifier release];
 	[self->info       release];
 	[self->backupMap  release];
+	[self->backup release];
 	[super dealloc];
 }
 

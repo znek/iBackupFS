@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class iBackup;
+
 @interface iBackupSet : NSObject
 {
 	NSString *identifier;
 	NSDictionary *info;
 	NSMutableDictionary *backupMap;
+	iBackup *backup; // just if single backup exists
 }
 
 - (id)initWithPath:(NSString *)_path;
