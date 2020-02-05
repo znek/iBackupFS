@@ -13,6 +13,7 @@
 #import "iBackupObject.h"
 #import "Keybag.h"
 #import "FUSEOFSFileProxy.h"
+#import <CommonCrypto/CommonCrypto.h>
 
 @implementation ManifestReader
 
@@ -41,15 +42,23 @@
 	[self->path release];
 	[self->keybag release];
 	[self->contentMap release];
+	[self->dbPath release];
 	[super dealloc];
-}
-
-- (NSString *)displayName {
-	return [self->info valueForKey:@"Display Name"];
 }
 
 - (BOOL)isEncrypted {
 	return [[self->manifest valueForKey:@"IsEncrypted"] boolValue];
+}
+
+- (NSString *)dbPath {
+	return self->dbPath;
+}
+- (Keybag *)keybag {
+	return self->keybag;
+}
+
+- (NSString *)displayName {
+	return [self->info valueForKey:@"Display Name"];
 }
 
 - (NSString *)password {
@@ -60,7 +69,6 @@
 
 - (void)setup {
 	if ([self isEncrypted]) {
-
 		NSString *pw = [self password];
 		if (!(pw && [pw length] != 0) ||
 			![self->keybag unlockWithPassword:pw])
@@ -71,8 +79,27 @@
 			[proxy release];
 			return;
 		}
-		[self->keybag unlockWithPassword:pw];
+
+		// unlocked
+		NSData *wrappedManifestKey = [self->manifest valueForKey:@"ManifestKey"];
+		NSData *manifestKey = [self->keybag unwrapManifestKey:wrappedManifestKey];
+
+		// decrypt Manifest.db
+		NSString *dbPath = [self->path stringByAppendingPathComponent:@"Manifest.db"];
+		NSData *encDBData = [NSData dataWithContentsOfFile:dbPath];
+		NSData *decDBData = [self->keybag decryptData:encDBData withKey:manifestKey];
+		self->dbPath = [[self tmpDBPath] retain];
+		[decDBData writeToFile:self->dbPath atomically:YES];
 	}
+	else {
+		self->dbPath = [[self->path stringByAppendingPathComponent:@"Manifest.db"] retain];
+	}
+
+	// open DB etc.
+}
+
+- (NSString *)tmpDBPath {
+	return @"/tmp/decrypted_manifest.db";
 }
 
 /* accessors */

@@ -16,10 +16,15 @@
 	NSDictionary *manifest;
 	NSDictionary *info;
 	Keybag *keybag;
+	NSString *dbPath;
 	NSMutableDictionary *contentMap;
 }
 
 - (id)initWithPath:(NSString *)_path;
+
+- (BOOL)isEncrypted;
+- (Keybag *)keybag;
+- (NSString *)dbPath;
 
 - (NSDictionary *)contentMap;
 
