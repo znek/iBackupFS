@@ -29,9 +29,25 @@
 		AD0F6A431575957100031119 /* MBDBReader.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A421575957100031119 /* MBDBReader.m */; settings = {COMPILER_FLAGS = "-Wno-unused-variable"; }; };
 		AD0F6A46157597D800031119 /* NSMutableDictionary+iBackupFS.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A45157597D800031119 /* NSMutableDictionary+iBackupFS.m */; };
 		AD0F6A491575A1AC00031119 /* NSString+iBackupFS.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A481575A1AC00031119 /* NSString+iBackupFS.m */; };
+		AD31C72C23EB6B65005C1B27 /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD31C72B23EB6B65005C1B27 /* FMDB.framework */; };
+		AD31C72D23EB6B65005C1B27 /* FMDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AD31C72B23EB6B65005C1B27 /* FMDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ADC5D2FE23E9BEA200882760 /* libSystem.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC5D2FD23E9BEA200882760 /* libSystem.tbd */; };
 		ADC5D30123EAED3000882760 /* iBackupFileObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC5D30023EAED3000882760 /* iBackupFileObject.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AD31C72E23EB6B65005C1B27 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AD31C72D23EB6B65005C1B27 /* FMDB.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AD07177923E86092004399DD /* ManifestReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManifestReader.h; sourceTree = "<group>"; };
@@ -83,6 +99,7 @@
 		AD0F6A45157597D800031119 /* NSMutableDictionary+iBackupFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+iBackupFS.m"; sourceTree = "<group>"; };
 		AD0F6A471575A1AC00031119 /* NSString+iBackupFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+iBackupFS.h"; sourceTree = "<group>"; };
 		AD0F6A481575A1AC00031119 /* NSString+iBackupFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+iBackupFS.m"; sourceTree = "<group>"; };
+		AD31C72B23EB6B65005C1B27 /* FMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FMDB.framework; path = Carthage/Build/Mac/FMDB.framework; sourceTree = "<group>"; };
 		ADC5D2FD23E9BEA200882760 /* libSystem.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libSystem.tbd; path = usr/lib/libSystem.tbd; sourceTree = SDKROOT; };
 		ADC5D2FF23EAED3000882760 /* iBackupFileObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iBackupFileObject.h; sourceTree = "<group>"; };
 		ADC5D30023EAED3000882760 /* iBackupFileObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iBackupFileObject.m; sourceTree = "<group>"; };
@@ -96,6 +113,7 @@
 				ADC5D2FE23E9BEA200882760 /* libSystem.tbd in Frameworks */,
 				AD0F6A051575672E00031119 /* OSXFUSE.framework in Frameworks */,
 				AD0F69E1157562E500031119 /* Cocoa.framework in Frameworks */,
+				AD31C72C23EB6B65005C1B27 /* FMDB.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +144,7 @@
 		AD0F69DF157562E500031119 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AD31C72B23EB6B65005C1B27 /* FMDB.framework */,
 				ADC5D2FD23E9BEA200882760 /* libSystem.tbd */,
 				AD0F69E0157562E500031119 /* Cocoa.framework */,
 				AD0F6A041575672E00031119 /* OSXFUSE.framework */,
@@ -220,6 +239,7 @@
 				AD0F69D8157562E500031119 /* Sources */,
 				AD0F69D9157562E500031119 /* Frameworks */,
 				AD0F69DA157562E500031119 /* Resources */,
+				AD31C72E23EB6B65005C1B27 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -379,12 +399,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-				FRAMEWORK_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iBackupFS/common.h;
 				INFOPLIST_FILE = "iBackupFS/iBackupFS-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system",
@@ -405,12 +429,16 @@
 				DEPLOYMENT_LOCATION = YES;
 				DEPLOYMENT_POSTPROCESSING = YES;
 				DSTROOT = /;
-				FRAMEWORK_SEARCH_PATHS = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iBackupFS/common.h;
 				INFOPLIST_FILE = "iBackupFS/iBackupFS-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system",
