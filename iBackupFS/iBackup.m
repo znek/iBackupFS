@@ -125,10 +125,10 @@ static NSMutableDictionary *replaceMap = nil;
 			NSDictionary *metaInfo = [NSDictionary dictionaryWithContentsOfFile:metaPath];
 			NSData       *metaData = [metaInfo objectForKey:@"Metadata"];
 			if (metaData) {
-				metaInfo = [NSPropertyListSerialization propertyListFromData:metaData
-														mutabilityOption:NSPropertyListImmutable
+				metaInfo = [NSPropertyListSerialization propertyListWithData:metaData
+														options:NSPropertyListImmutable
 														format:NULL
-														errorDescription:NULL]; 
+														error:NULL];
 			}
 			
 			NSString *contentPath = [metaInfo objectForKey:@"Path"];
