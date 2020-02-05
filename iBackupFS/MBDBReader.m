@@ -21,7 +21,7 @@
 - (UInt8)readUInt8;
 - (UInt16)readUInt16;
 - (UInt32)readUInt32;
-- (UInt32)readUInt64;
+- (UInt64)readUInt64;
 @end
 
 @implementation MBDBReader
