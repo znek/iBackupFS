@@ -82,7 +82,7 @@
 
 		// unlocked
 		NSData *wrappedManifestKey = [self->manifest valueForKey:@"ManifestKey"];
-		NSData *manifestKey = [self->keybag unwrapManifestKey:wrappedManifestKey];
+		NSData *manifestKey = [self->keybag unwrapTypedKey:wrappedManifestKey];
 
 		// decrypt Manifest.db
 		NSString *dbPath = [self->path stringByAppendingPathComponent:@"Manifest.db"];

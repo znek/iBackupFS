@@ -225,15 +225,19 @@ static NSDictionary *protectionClasses = nil;
 	return rawKey;
 }
 
-- (NSData *)unwrapManifestKey:(NSData *)_manifestKey {
-	// manifestKey has its protectionClass prepended!
+- (NSData *)unwrapTypedKey:(NSData *)_typedKey {
+	// _typedKey has its protectionClass prepended!
 
-	UInt32 value = *(UInt32 *)([_manifestKey bytes]);
+	UInt32 value = *(UInt32 *)([_typedKey bytes]);
 	UInt32 num = NSSwapLittleIntToHost(value);
 	NSNumber *protectionClass = [NSNumber numberWithUnsignedInt:num];
-	NSData *key = [_manifestKey subdataWithRange:NSMakeRange(4, [_manifestKey length] - 4)];
+	NSData *key = [_typedKey subdataWithRange:NSMakeRange(4, [_typedKey length] - 4)];
 
 	return [self unwrapKey:key forClass:protectionClass];
+}
+
+- (NSData *)keyForClass:(NSNumber *)_protectionClass {
+	return self->classKeys[_protectionClass][@"KEY"];
 }
 
 - (NSData *)decryptData:(NSData *)_data withKey:(NSData *)_key {
@@ -271,20 +275,6 @@ static NSDictionary *protectionClasses = nil;
 	}
 	CCCryptorRelease(cryptor);
 	return decrypted;
-}
-
-- (NSData *)keyForClass:(NSNumber *)_protectionClass {
-	return self->classKeys[_protectionClass][@"KEY"];
-}
-
-- (NSData *)decryptData:(NSData *)_data ofClass:(NSNumber *)_protectionClass {
-	NSData *classKey = [self keyForClass:_protectionClass];
-	if (!classKey) {
-		NSLog(@"No key for protectionClass:%@ (%@)!",
-			  _protectionClass, protectionClasses[_protectionClass]);
-		return nil;
-	}
-	return [self decryptData:_data withKey:classKey];
 }
 
 @end

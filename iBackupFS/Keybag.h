@@ -28,10 +28,9 @@
 - (BOOL)unlockWithPassword:(NSString *)_password;
 - (BOOL)isUnlocked;
 
-- (NSData *)unwrapManifestKey:(NSData *)_manifestKey;
+- (NSData *)unwrapTypedKey:(NSData *)_typedKey;
 - (NSData *)keyForClass:(NSNumber *)_protectionClass;
 
-- (NSData *)decryptData:(NSData *)_data ofClass:(NSNumber *)_protectionClass;
 - (NSData *)decryptData:(NSData *)_data withKey:(NSData *)_key;
 
 @end
