@@ -12,6 +12,7 @@
 #import "iBackupObject.h"
 #import "MBDBReader.h"
 #import "ManifestReader.h"
+#import "Keybag.h"
 
 @interface iBackup (Private)
 - (void)_setupOnce;
@@ -78,10 +79,21 @@ static NSMutableDictionary *replaceMap = nil;
 }
 
 - (void)dealloc {
+	[self cleanup];
 	[self->path release];
 	[self->info release];
 	[self->contentMap release];
+
+	[self->keybag release];
+	[self->dbPath release];
+
 	[super dealloc];
+}
+
+- (void)cleanup {
+	if (self->dbPath && self->keybag) {
+		NSLog(@"!! Remove db: %@", self->dbPath);
+	}
 }
 
 - (void)_setupOnce {
@@ -159,6 +171,13 @@ static NSMutableDictionary *replaceMap = nil;
 - (void)_setupVersion4 {
 	NSString *plistPath = [self->path stringByAppendingPathComponent:@"Manifest.plist"];
 	ManifestReader *reader = [[ManifestReader alloc] initWithPath:plistPath];
+
+	self->dbPath = [[reader dbPath] retain];
+	if ([reader isEncrypted]) {
+		self->keybag = [[reader keybag] retain];
+	}
+
+	// just in case
 	[self->contentMap addEntriesFromDictionary:[reader contentMap]];
 	[reader release];
 }

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class Keybag;
 @interface iBackup : NSObject
 {
 	NSString *path;
@@ -15,6 +16,9 @@
 	NSMutableDictionary *contentMap;
 	BOOL isCurrent;
 	BOOL needsSetup;
+
+	Keybag *keybag;
+	NSString *dbPath;
 }
 
 + (NSString *)properPathFromDomain:(NSString *)_domain relativePath:(NSString *)_path;
