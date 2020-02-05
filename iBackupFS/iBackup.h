@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @class Keybag;
+@class iBackupFileObject;
+
 @interface iBackup : NSObject
 {
 	NSString *path;
@@ -26,5 +28,7 @@
 - (id)initWithPath:(NSString *)_path;
 
 - (NSString *)displayName;
+
+- (NSData *)contentsOfHashedObject:(iBackupFileObject *)_obj;
 
 @end

@@ -12,6 +12,7 @@
 #import "iBackupObject.h"
 #import "MBDBReader.h"
 #import "ManifestReader.h"
+#import "iBackupFileObject.h"
 #import "Keybag.h"
 
 @interface iBackup (Private)
@@ -192,6 +193,21 @@ static NSMutableDictionary *replaceMap = nil;
 	return [date description];
 }
 
+- (NSData *)contentsOfHashedObject:(iBackupFileObject *)_obj {
+	NSMutableString *objPath = [self->path mutableCopy];
+	[objPath appendString:@"/"];
+	[objPath appendString:[[_obj fileID] substringToIndex:2]];
+	[objPath appendString:@"/"];
+	[objPath appendString:[_obj fileID]];
+	NSData *data = [NSData dataWithContentsOfFile:objPath];
+	[objPath release];
+
+	if (self->keybag) {
+		NSData *key = [self->keybag unwrapTypedKey:[_obj wrappedKey]];
+		data = [self->keybag decryptData:data withKey:key];
+	}
+	return data;
+}
 
 /* FUSEOFS */
 

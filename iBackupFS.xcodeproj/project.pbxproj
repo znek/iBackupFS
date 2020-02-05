@@ -30,6 +30,7 @@
 		AD0F6A46157597D800031119 /* NSMutableDictionary+iBackupFS.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A45157597D800031119 /* NSMutableDictionary+iBackupFS.m */; };
 		AD0F6A491575A1AC00031119 /* NSString+iBackupFS.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A481575A1AC00031119 /* NSString+iBackupFS.m */; };
 		ADC5D2FE23E9BEA200882760 /* libSystem.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC5D2FD23E9BEA200882760 /* libSystem.tbd */; };
+		ADC5D30123EAED3000882760 /* iBackupFileObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC5D30023EAED3000882760 /* iBackupFileObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,8 @@
 		AD0F6A471575A1AC00031119 /* NSString+iBackupFS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+iBackupFS.h"; sourceTree = "<group>"; };
 		AD0F6A481575A1AC00031119 /* NSString+iBackupFS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+iBackupFS.m"; sourceTree = "<group>"; };
 		ADC5D2FD23E9BEA200882760 /* libSystem.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libSystem.tbd; path = usr/lib/libSystem.tbd; sourceTree = SDKROOT; };
+		ADC5D2FF23EAED3000882760 /* iBackupFileObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iBackupFileObject.h; sourceTree = "<group>"; };
+		ADC5D30023EAED3000882760 /* iBackupFileObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iBackupFileObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +156,8 @@
 				AD0F6A381575751100031119 /* iBackup.m */,
 				AD0F6A3A157584EE00031119 /* iBackupObject.h */,
 				AD0F6A3B157584EE00031119 /* iBackupObject.m */,
+				ADC5D2FF23EAED3000882760 /* iBackupFileObject.h */,
+				ADC5D30023EAED3000882760 /* iBackupFileObject.m */,
 				AD0F6A411575957100031119 /* MBDBReader.h */,
 				AD0F6A421575957100031119 /* MBDBReader.m */,
 				AD07177923E86092004399DD /* ManifestReader.h */,
@@ -293,6 +298,7 @@
 				AD0F6A271575689100031119 /* FUSEObjectFileSystem.m in Sources */,
 				AD0F6A281575689100031119 /* FUSEOFSAppController.m in Sources */,
 				AD0F6A291575689100031119 /* FUSEOFSFileProxy.m in Sources */,
+				ADC5D30123EAED3000882760 /* iBackupFileObject.m in Sources */,
 				AD0F6A2A1575689100031119 /* FUSEOFSLookupContext.m in Sources */,
 				AD0F6A2B1575689100031119 /* FUSEOFSMemoryContainer.m in Sources */,
 				AD0F6A2C1575689100031119 /* FUSEOFSMemoryFile.m in Sources */,
