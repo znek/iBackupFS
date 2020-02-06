@@ -74,7 +74,7 @@
 	if ([self isEncrypted]) {
 		NSUserNotificationCenter *unc =
 			[NSUserNotificationCenter defaultUserNotificationCenter];
-		NSUserNotification *n = [[[NSUserNotification alloc] init] autorelease];
+		NSUserNotification *n = [[NSUserNotification alloc] init];
 		[n setTitle:NSLocalizedString(@"Decrypting Device Backup",
 									  "informational message")];
 		[n setSubtitle:[self displayName]];
@@ -91,13 +91,15 @@
 			[proxy release];
 
 			[unc removeDeliveredNotification:n];
+			[n release];
 
-			n = [[[NSUserNotification alloc] init] autorelease];
+			n = [[NSUserNotification alloc] init];
 			[n setTitle:NSLocalizedString(@"Decryption Failed",
 										  "failure message")];
 			[n setSubtitle:[self displayName]];
 			[n setHasActionButton:NO];
 			[unc deliverNotification:n];
+			[n release];
 
 			return;
 		}
@@ -114,6 +116,7 @@
 		if (self->dbPath)
 			[decDBData writeToFile:self->dbPath atomically:YES];
 		[unc removeDeliveredNotification:n];
+		[n release];
 	}
 	else {
 		self->dbPath = [[self->path stringByAppendingPathComponent:@"Manifest.db"] retain];
