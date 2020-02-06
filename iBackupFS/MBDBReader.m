@@ -33,7 +33,7 @@
 		NSDictionary  *attrs = [fm attributesOfItemAtPath:_path error:NULL];
 		
 		self->size = [[attrs objectForKey:NSFileSize] unsignedLongLongValue];
-		self->fh   = [NSFileHandle fileHandleForReadingAtPath:_path];
+		self->fh   = [[NSFileHandle fileHandleForReadingAtPath:_path] retain];
 		self->path = [[_path stringByDeletingLastPathComponent] copy];
 		self->contentMap = [[NSMutableDictionary alloc] init];
 		
