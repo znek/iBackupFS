@@ -69,6 +69,15 @@
 
 - (void)setup {
 	if ([self isEncrypted]) {
+		NSUserNotificationCenter *unc =
+			[NSUserNotificationCenter defaultUserNotificationCenter];
+		NSUserNotification *n = [[[NSUserNotification alloc] init] autorelease];
+		[n setTitle:NSLocalizedString(@"Decrypting Device Backup",
+									  "informational message")];
+		[n setSubtitle:[self displayName]];
+		[n setHasActionButton:NO];
+		[unc deliverNotification:n];
+
 		NSString *pw = [self password];
 		if (!(pw && [pw length] != 0) ||
 			![self->keybag unlockWithPassword:pw])
@@ -77,6 +86,16 @@
 			FUSEOFSFileProxy *proxy = [[FUSEOFSFileProxy alloc] initWithPath:infoEncryptedFilePath];
 			[self->contentMap addContentObject:proxy path:@"ENCRYPTED BACKUP.md"];
 			[proxy release];
+
+			[unc removeDeliveredNotification:n];
+
+			n = [[[NSUserNotification alloc] init] autorelease];
+			[n setTitle:NSLocalizedString(@"Decryption Failed",
+										  "failure message")];
+			[n setSubtitle:[self displayName]];
+			[n setHasActionButton:NO];
+			[unc deliverNotification:n];
+
 			return;
 		}
 
@@ -91,6 +110,7 @@
 		self->dbPath = [[self tmpDBPath] retain];
 		if (self->dbPath)
 			[decDBData writeToFile:self->dbPath atomically:YES];
+		[unc removeDeliveredNotification:n];
 	}
 	else {
 		self->dbPath = [[self->path stringByAppendingPathComponent:@"Manifest.db"] retain];
