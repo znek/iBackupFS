@@ -104,7 +104,7 @@ static BOOL showFileID = NO;
 
 - (void)_setup {
 	NSFileManager *fm = [NSFileManager defaultManager];
-	if ([fm fileExistsAtPath:[self->path stringByAppendingPathComponent:@"Manifest.plist"]]) {
+	if ([fm fileExistsAtPath:[self->path stringByAppendingPathComponent:@"Manifest.db"]]) {
 		[self _setupVersion4];
 	}
 	else
