@@ -202,21 +202,45 @@ static NSMutableDictionary *replaceMap = nil;
 			return;
 		}
 
-		// flags: 1 == Files
-		FMResultSet *results = [db executeQuery:@"SELECT domain, relativePath, fileID, file FROM Files WHERE flags = 1", nil];
-		while ([results next]) {
-			NSString *domain  = [results stringForColumnIndex:0];
-			NSString *relPath = [results stringForColumnIndex:1];
-			NSString *fileID  = [results stringForColumnIndex:2];
-			NSData *fileData  = [results dataNoCopyForColumnIndex:3];
-			iBackupFileObject *obj = [[iBackupFileObject alloc]
-									                      initWithFileID:fileID
-									                      fileData:fileData
-									                      fromBackup:self];
-			NSString *path = [[self class]
-							        properPathFromDomain:domain
-									relativePath:relPath];
-			[self->contentMap addContentObject:obj path:path];
+		NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+		if ([ud boolForKey:@"UseGroups"] ||
+			[ud boolForKey:@"UseGroupsOnly"])
+		{
+			NSDictionary *specialGroups = [ud dictionaryForKey:@"Groups"];
+			for (NSString *groupPath in [specialGroups allKeys]) {
+				NSArray *fileIDs = [specialGroups objectForKey:groupPath];
+				for (NSString *fileID in fileIDs) {
+					FMResultSet *results = [db executeQuery:@"SELECT relativePath, file FROM Files WHERE fileID=?", fileID, nil];
+					while([results next]) {
+						NSString *relPath = [results stringForColumnIndex:0];
+						NSData *fileData  = [results dataNoCopyForColumnIndex:1];
+						iBackupFileObject *obj = [[iBackupFileObject alloc]
+																	  initWithFileID:fileID
+																	  fileData:fileData
+																	  fromBackup:self];
+						NSString *path = [groupPath stringByAppendingPathComponent:[relPath lastPathComponent]];
+						[self->contentMap addContentObject:obj path:path];
+					}
+				}
+			}
+		}
+		if (![ud boolForKey:@"UseGroupsOnly"]) {
+			// flags: 1 == Files
+			FMResultSet *results = [db executeQuery:@"SELECT domain, relativePath, fileID, file FROM Files WHERE flags = 1", nil];
+			while ([results next]) {
+				NSString *domain  = [results stringForColumnIndex:0];
+				NSString *relPath = [results stringForColumnIndex:1];
+				NSString *fileID  = [results stringForColumnIndex:2];
+				NSData *fileData  = [results dataNoCopyForColumnIndex:3];
+				iBackupFileObject *obj = [[iBackupFileObject alloc]
+															  initWithFileID:fileID
+															  fileData:fileData
+															  fromBackup:self];
+				NSString *path = [[self class]
+										properPathFromDomain:domain
+										relativePath:relPath];
+				[self->contentMap addContentObject:obj path:path];
+			}
 		}
 		[db close];
 	}
