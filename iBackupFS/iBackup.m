@@ -187,7 +187,9 @@ static BOOL showFileID = NO;
 		self->keybag = [[reader keybag] retain];
 	}
 
-	if (self->dbPath) {
+	if (self->dbPath && (!self->keybag ||
+						 (self->keybag && [self->keybag isUnlocked])))
+	{
 		FMDatabase *db = [FMDatabase databaseWithPath:self->dbPath];
 		if (![db open]) {
 			NSLog(@"Couldn't open DB at '%@'?!", self->dbPath);
