@@ -4,10 +4,10 @@
 
 - [iTunes Backup](https://www.theiphonewiki.com/wiki/ITunes_Backup)
   - good overview
-- [How to decrypt and *encrypted* iPhone backup](https://stackoverflow.com/questions/1498342/how-to-decrypt-an-encrypted-apple-itunes-iphone-backup)
+- [How to decrypt an *encrypted* iPhone backup](https://stackoverflow.com/questions/1498342/how-to-decrypt-an-encrypted-apple-itunes-iphone-backup)
   - *Excellent* HOWTO / explanation
   - Python code can be copied (almost verbatim!)
-- https://www.iphonebackupextractor.com/blog/iphone-backup-location-all-files-extension/
+- [Backup database hashes: which filenames do they use](https://www.iphonebackupextractor.com/blog/iphone-backup-location-all-files-extension/)
   - excellent reference, can use these to create artificial
     "interesting files" folders
     - via defaults like so?:
