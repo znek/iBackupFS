@@ -25,7 +25,7 @@
 
 @implementation iBackup
 
-static NSMutableDictionary *replaceMap = nil;
+static NSDictionary *replaceMap = nil;
 static BOOL showFileID = NO;
 
 + (void)initialize {
@@ -35,28 +35,7 @@ static BOOL showFileID = NO;
 
 	NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
 	showFileID = [ud boolForKey:@"ShowFileID"];
-
-	replaceMap = [[NSMutableDictionary alloc] init];
-	[replaceMap setObject:@"Applications/" forKey:@"AppDomain-"];
-	[replaceMap setObject:@"Applications/" forKey:@"AppDomainGroup-"];
-	[replaceMap setObject:@"Camera" forKey:@"CameraRollDomain"];
-	[replaceMap setObject:@"Database" forKey:@"DatabaseDomain"];
-	[replaceMap setObject:@"Health" forKey:@"HealthDomain"];
-	[replaceMap setObject:@"Home" forKey:@"HomeDomain"];
-	[replaceMap setObject:@"HomeKit" forKey:@"HomeKitDomain"];
-	[replaceMap setObject:@"Install" forKey:@"InstallDomain"];
-	[replaceMap setObject:@"Keyboard" forKey:@"KeyboardDomain"];
-	[replaceMap setObject:@"Keychains" forKey:@"KeychainDomain"];
-	[replaceMap setObject:@"ManagedPreferences" forKey:@"ManagedPreferencesDomain"];
-	[replaceMap setObject:@"Media" forKey:@"MediaDomain"];
-	[replaceMap setObject:@"Mobile Device" forKey:@"MobileDeviceDomain"];
-	[replaceMap setObject:@"Plugins/" forKey:@"AppDomainPlugin-"];
-	[replaceMap setObject:@"Root" forKey:@"RootDomain"];
-	[replaceMap setObject:@"Ringtones" forKey:@"TonesDomain"];
-	[replaceMap setObject:@"System/" forKey:@"SysContainerDomain-"];
-	[replaceMap setObject:@"System/" forKey:@"SysSharedContainerDomain-"];
-	[replaceMap setObject:@"Preferences" forKey:@"SystemPreferencesDomain"];
-	[replaceMap setObject:@"Wireless" forKey:@"WirelessDomain"];
+	replaceMap = [[ud dictionaryForKey:@"ReplaceMap"] retain];
 }
 
 + (NSString *)properPathFromDomain:(NSString *)_domain relativePath:(NSString *)_path {
@@ -191,11 +170,12 @@ static BOOL showFileID = NO;
 
 - (void)addFileObject:(iBackupFileObject *)_obj path:(NSString *)_path {
 	if (showFileID) {
-		NSString *suffix = [NSString stringWithFormat:@" [%@]",
-									  [_obj fileID], nil];
-		_path = [_path stringByAppendingString:suffix];
+		NSString *suffix = [_path lastPathComponent];
+		_path = [_path stringByDeletingLastPathComponent];
+		_path = [_path stringByAppendingFormat:@"/[%@] %@",
+											    [_obj fileID], suffix, nil];
 	}
-	[self->contentMap addContentObject:_obj path:path];
+	[self->contentMap addContentObject:_obj path:_path];
 }
 
 - (void)_setupVersion4 {

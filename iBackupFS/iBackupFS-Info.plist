@@ -28,6 +28,49 @@
 		<string>iBackupFileSystem</string>
 		<key>ShowFileID</key>
 		<false/>
+		<key>ReplaceMap</key>
+		<dict>
+			<key>AppDomain-</key>
+			<string>Applications/</string>
+			<key>AppDomainGroup-</key>
+			<string>Applications/</string>
+			<key>CameraRollDomain</key>
+			<string>Camera</string>
+			<key>DatabaseDomain</key>
+			<string>Database</string>
+			<key>HealthDomain</key>
+			<string>Health</string>
+			<key>HomeDomain</key>
+			<string>Home</string>
+			<key>HomeKitDomain</key>
+			<string>HomeKit</string>
+			<key>InstallDomain</key>
+			<string>Install</string>
+			<key>KeyboardDomain</key>
+			<string>Keyboard</string>
+			<key>KeychainDomain</key>
+			<string>Keychains</string>
+			<key>ManagedPreferencesDomain</key>
+			<string>ManagedPreferences</string>
+			<key>MediaDomain</key>
+			<string>Media</string>
+			<key>MobileDeviceDomain</key>
+			<string>Mobile Device</string>
+			<key>AppDomainPlugin-</key>
+			<string>Plugins/</string>
+			<key>RootDomain</key>
+			<string>Root</string>
+			<key>TonesDomain</key>
+			<string>Ringtones</string>
+			<key>SysContainerDomain-</key>
+			<string>System/</string>
+			<key>SysSharedContainerDomain-</key>
+			<string>System/</string>
+			<key>SystemPreferencesDomain</key>
+			<string>Preferences</string>
+			<key>WirelessDomain</key>
+			<string>Wireless</string>
+		</dict>
 		<key>UseGroups</key>
 		<true/>
 		<key>UseGroupsOnly</key>
