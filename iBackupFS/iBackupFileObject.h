@@ -16,12 +16,12 @@
 	NSString *fileID;
 
 	NSData *wrappedKey;
+	NSMutableDictionary *attrs;
 }
 
-- (id)initWithFileID:(NSString *)_fileID fromBackup:(iBackup *)_backup;
-- (NSString *)fileID;
+- (id)initWithFileID:(NSString *)_fileID fileData:(NSData *)_file fromBackup:(iBackup *)_backup;
 
-- (void)setWrappedKey:(NSData *)_wrappedKey;
+- (NSString *)fileID;
 - (NSData *)wrappedKey;
 
 @end
