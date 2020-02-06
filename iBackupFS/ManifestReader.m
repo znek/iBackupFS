@@ -72,6 +72,10 @@
 
 - (void)setup {
 	if ([self isEncrypted]) {
+#if 1
+		NSLog(@"Decrypting Device Backup: %@ (%@)",
+			  [self displayName], [self deviceName]);
+#endif
 		NSUserNotificationCenter *unc =
 			[NSUserNotificationCenter defaultUserNotificationCenter];
 		NSUserNotification *n = [[NSUserNotification alloc] init];
@@ -93,6 +97,9 @@
 			[unc removeDeliveredNotification:n];
 			[n release];
 
+#if 1
+			NSLog(@"Decryption Failed: %@", [self displayName]);
+#endif
 			n = [[NSUserNotification alloc] init];
 			[n setTitle:NSLocalizedString(@"Decryption Failed",
 										  "failure message")];
@@ -115,6 +122,11 @@
 		self->dbPath = [[self tmpDBPath] retain];
 		if (self->dbPath)
 			[decDBData writeToFile:self->dbPath atomically:YES];
+
+#if 1
+		NSLog(@"Decryption Done: %@", [self displayName]);
+#endif
+
 		[unc removeDeliveredNotification:n];
 		[n release];
 	}
