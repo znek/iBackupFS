@@ -26,11 +26,15 @@
 @implementation iBackup
 
 static NSMutableDictionary *replaceMap = nil;
+static BOOL showFileID = NO;
 
 + (void)initialize {
 	static BOOL didInit = NO;
 	if (didInit) return;
 	didInit = YES;
+
+	NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+	showFileID = [ud boolForKey:@"ShowFileID"];
 
 	replaceMap = [[NSMutableDictionary alloc] init];
 	[replaceMap setObject:@"Applications/" forKey:@"AppDomain-"];
@@ -185,6 +189,15 @@ static NSMutableDictionary *replaceMap = nil;
 	[reader release];
 }
 
+- (void)addFileObject:(iBackupFileObject *)_obj path:(NSString *)_path {
+	if (showFileID) {
+		NSString *suffix = [NSString stringWithFormat:@" [%@]",
+									  [_obj fileID], nil];
+		_path = [_path stringByAppendingString:suffix];
+	}
+	[self->contentMap addContentObject:_obj path:path];
+}
+
 - (void)_setupVersion4 {
 	NSString *plistPath = [self->path stringByAppendingPathComponent:@"Manifest.plist"];
 	ManifestReader *reader = [[ManifestReader alloc] initWithPath:plistPath];
@@ -219,7 +232,7 @@ static NSMutableDictionary *replaceMap = nil;
 																	  fileData:fileData
 																	  fromBackup:self];
 						NSString *path = [groupPath stringByAppendingPathComponent:[relPath lastPathComponent]];
-						[self->contentMap addContentObject:obj path:path];
+						[self addFileObject:obj path:path];
 					}
 				}
 			}
@@ -239,7 +252,7 @@ static NSMutableDictionary *replaceMap = nil;
 				NSString *path = [[self class]
 										properPathFromDomain:domain
 										relativePath:relPath];
-				[self->contentMap addContentObject:obj path:path];
+				[self addFileObject:obj path:path];
 			}
 		}
 		[db close];

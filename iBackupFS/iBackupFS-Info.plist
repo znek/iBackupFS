@@ -26,6 +26,8 @@
 		<string>/Volumes/iBackupFS</string>
 		<key>FUSEObjectFileSystemClass</key>
 		<string>iBackupFileSystem</string>
+		<key>ShowFileID</key>
+		<false/>
 		<key>UseGroups</key>
 		<true/>
 		<key>UseGroupsOnly</key>
