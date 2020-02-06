@@ -97,7 +97,7 @@ static NSDictionary *protectionClasses = nil;
 #if 0
 	NSLog(@"classKeys:%@", self->classKeys);
 #endif
-#if 1
+#if 0
 	NSLog(@"KeybagType: #%lu (%@)", self->type, [keybagTypes objectAtIndex:self->type]);
 #endif
 }
@@ -137,7 +137,7 @@ static NSDictionary *protectionClasses = nil;
 - (BOOL)unlockWithPassword:(NSString *)_password {
 	if (!_password || [_password length] == 0)
 		return NO;
-#if 1
+#if 0
 	NSLog(@"unlock with password '%@'!", _password);
 #endif
 
