@@ -57,13 +57,16 @@
 	return self->keybag;
 }
 
+- (NSString *)deviceName {
+	return [self->info objectForKey:@"Device Name"];
+}
 - (NSString *)displayName {
-	return [self->info valueForKey:@"Display Name"];
+	return [self->info objectForKey:@"Display Name"];
 }
 
 - (NSString *)password {
 	NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-	NSString *key = [NSString stringWithFormat:@"%@_Password", [self displayName]];
+	NSString *key = [NSString stringWithFormat:@"%@_Password", [self deviceName]];
 	return [ud stringForKey:key];
 }
 
