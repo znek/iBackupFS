@@ -89,7 +89,8 @@
 		NSData *encDBData = [NSData dataWithContentsOfFile:dbPath];
 		NSData *decDBData = [self->keybag decryptData:encDBData withKey:manifestKey];
 		self->dbPath = [[self tmpDBPath] retain];
-		[decDBData writeToFile:self->dbPath atomically:YES];
+		if (self->dbPath)
+			[decDBData writeToFile:self->dbPath atomically:YES];
 	}
 	else {
 		self->dbPath = [[self->path stringByAppendingPathComponent:@"Manifest.db"] retain];
@@ -99,7 +100,15 @@
 }
 
 - (NSString *)tmpDBPath {
-	return @"/tmp/decrypted_manifest.db";
+	char secureTmp[] = "/tmp/ibackupfsXXXXXXXXXXXX";
+	int  fd = mkstemp(secureTmp);
+	if (fd == -1) {
+		NSLog(@"Failed to create safe temporary file!");
+		return nil;
+	}
+	close(fd);
+	return [NSString stringWithCString:secureTmp
+					  encoding:NSASCIIStringEncoding];
 }
 
 /* accessors */
