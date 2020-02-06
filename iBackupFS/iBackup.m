@@ -34,13 +34,23 @@ static NSMutableDictionary *replaceMap = nil;
 
 	replaceMap = [[NSMutableDictionary alloc] init];
 	[replaceMap setObject:@"Applications/" forKey:@"AppDomain-"];
+	[replaceMap setObject:@"Applications/" forKey:@"AppDomainGroup-"];
 	[replaceMap setObject:@"Camera" forKey:@"CameraRollDomain"];
+	[replaceMap setObject:@"Database" forKey:@"DatabaseDomain"];
+	[replaceMap setObject:@"Health" forKey:@"HealthDomain"];
 	[replaceMap setObject:@"Home" forKey:@"HomeDomain"];
+	[replaceMap setObject:@"HomeKit" forKey:@"HomeKitDomain"];
+	[replaceMap setObject:@"Install" forKey:@"InstallDomain"];
+	[replaceMap setObject:@"Keyboard" forKey:@"KeyboardDomain"];
 	[replaceMap setObject:@"Keychains" forKey:@"KeychainDomain"];
+	[replaceMap setObject:@"ManagedPreferences" forKey:@"ManagedPreferencesDomain"];
 	[replaceMap setObject:@"Media" forKey:@"MediaDomain"];
 	[replaceMap setObject:@"Mobile Device" forKey:@"MobileDeviceDomain"];
+	[replaceMap setObject:@"Plugins/" forKey:@"AppDomainPlugin-"];
 	[replaceMap setObject:@"Root" forKey:@"RootDomain"];
 	[replaceMap setObject:@"Ringtones" forKey:@"TonesDomain"];
+	[replaceMap setObject:@"System/" forKey:@"SysContainerDomain-"];
+	[replaceMap setObject:@"System/" forKey:@"SysSharedContainerDomain-"];
 	[replaceMap setObject:@"Preferences" forKey:@"SystemPreferencesDomain"];
 	[replaceMap setObject:@"Wireless" forKey:@"WirelessDomain"];
 }
