@@ -14,6 +14,7 @@
 #import "ManifestReader.h"
 #import "iBackupFileObject.h"
 #import "Keybag.h"
+#import <FMDB/FMDB.h>
 
 @interface iBackup (Private)
 - (void)_setupOnce;
@@ -93,7 +94,12 @@ static NSMutableDictionary *replaceMap = nil;
 
 - (void)cleanup {
 	if (self->dbPath && self->keybag) {
-		NSLog(@"!! Remove db: %@", self->dbPath);
+		NSFileManager *fm = [NSFileManager defaultManager];
+		[fm removeItemAtPath:self->dbPath error:NULL];
+		[fm removeItemAtPath:[self->dbPath stringByAppendingString:@"-shm"]
+			error:NULL];
+		[fm removeItemAtPath:[self->dbPath stringByAppendingString:@"-wal"]
+			error:NULL];
 	}
 }
 
@@ -176,6 +182,33 @@ static NSMutableDictionary *replaceMap = nil;
 	self->dbPath = [[reader dbPath] retain];
 	if ([reader isEncrypted]) {
 		self->keybag = [[reader keybag] retain];
+	}
+
+	if (self->dbPath) {
+		FMDatabase *db = [FMDatabase databaseWithPath:self->dbPath];
+		if (![db open]) {
+			NSLog(@"Couldn't open DB at '%@'?!", self->dbPath);
+			[reader release];
+			return;
+		}
+
+		// flags: 1 == Files
+		FMResultSet *results = [db executeQuery:@"SELECT domain, relativePath, fileID, file FROM Files WHERE flags = 1", nil];
+		while ([results next]) {
+			NSString *domain  = [results stringForColumnIndex:0];
+			NSString *relPath = [results stringForColumnIndex:1];
+			NSString *fileID  = [results stringForColumnIndex:2];
+			NSData *fileData  = [results dataNoCopyForColumnIndex:3];
+			iBackupFileObject *obj = [[iBackupFileObject alloc]
+									                      initWithFileID:fileID
+									                      fileData:fileData
+									                      fromBackup:self];
+			NSString *path = [[self class]
+							        properPathFromDomain:domain
+									relativePath:relPath];
+			[self->contentMap addContentObject:obj path:path];
+		}
+		[db close];
 	}
 
 	// just in case
