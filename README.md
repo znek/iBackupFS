@@ -14,8 +14,9 @@ device(s).
 
 ## Building Requirements
 
-- Xcode
-  - I used Xcode 11.3.1, but earlier versions might also work
+- [Xcode](https://developer.apple.com/xcode/)
+  - I used [Xcode 11.3.1](https://developer.apple.com/documentation/xcode_release_notes/xcode_11_3_1_release_notes?language=objc),
+    but earlier versions might also work
 - [Carthage](https://github.com/Carthage/Carthage)
   - Once installed, everything should work out-of-the-box as Carthage is
     integrated into the build process via a script phase
@@ -59,7 +60,7 @@ scheme of the underlying `Manifest.db` [SQLite](https://www.sqlite.org/)
 database). See [iBackupFS-Info.plist](iBackupFS/iBackupFS-Info.plist) for
 examples.
 
-# References
+## References
 
 - [macFUSE](http://osxfuse.github.com/)
 - [Filesystem in Userspace (FUSE)](https://en.wikipedia.org/wiki/Filesystem_in_Userspace)
