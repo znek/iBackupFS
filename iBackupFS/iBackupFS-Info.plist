@@ -96,6 +96,8 @@
 				<string>8c8d5e73e785f7253e060cfe9ffcf8b8d424a299</string>
 				<string>b8548dc30aa1030df0ce18ef08b882cf7ab5212f</string>
 			</array>
+			<key>Interesting Files/All Databases</key>
+			<string>relativePath LIKE '%.db' OR relativePath LIKE '%.sql%'</string>
 		</dict>
 	</dict>
 	<key>CFBundleShortVersionString</key>

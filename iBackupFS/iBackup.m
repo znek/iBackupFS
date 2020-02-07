@@ -203,19 +203,40 @@ static BOOL showFileID = NO;
 		{
 			NSDictionary *specialGroups = [ud dictionaryForKey:@"Groups"];
 			for (NSString *groupPath in [specialGroups allKeys]) {
-				NSArray *fileIDs = [specialGroups objectForKey:groupPath];
-				for (NSString *fileID in fileIDs) {
-					FMResultSet *results = [db executeQuery:@"SELECT relativePath, file FROM Files WHERE fileID=?", fileID, nil];
-					while([results next]) {
-						NSString *relPath = [results stringForColumnIndex:0];
-						NSData *fileData  = [results dataNoCopyForColumnIndex:1];
-						iBackupFileObject *obj = [[iBackupFileObject alloc]
-																	  initWithFileID:fileID
-																	  fileData:fileData
-																	  fromBackup:self];
-						NSString *path = [groupPath stringByAppendingPathComponent:[relPath lastPathComponent]];
-						[self addFileObject:obj path:path];
+				NSString *whereClause = nil;
+
+				// members can be strings (where clause) or arrays (fileIDs)
+				id member = specialGroups[groupPath];
+				if ([member isKindOfClass:[NSString class]]) {
+					whereClause = (NSString *)member;
+				}
+				else {
+					NSArray *fileIDs = (NSArray *)member;
+
+					// current FMDB can't parse array arguments it seems
+					NSMutableString * quotedIDList = [NSMutableString stringWithCapacity:(40 /* fileID length */ + 3 /* comma and quotes */) * [fileIDs count]];
+					for (NSUInteger i = 0; i < [fileIDs count]; i++) {
+						if (i > 0)
+							[quotedIDList appendString:@",'"];
+						else
+							[quotedIDList appendString:@"'"];
+						[quotedIDList appendString:fileIDs[i]];
+						[quotedIDList appendString:@"'"];
 					}
+					whereClause = [NSString stringWithFormat:@"fileID IN (%@)", quotedIDList, nil];
+				}
+				NSString *query = [NSString stringWithFormat:@"SELECT fileID, relativePath, file FROM Files WHERE %@", whereClause, nil];
+				FMResultSet *results = [db executeQuery:query, nil];
+				while([results next]) {
+					NSString *fileID  = [results stringForColumnIndex:0];
+					NSString *relPath = [results stringForColumnIndex:1];
+					NSData *fileData  = [results dataNoCopyForColumnIndex:2];
+					iBackupFileObject *obj = [[iBackupFileObject alloc]
+																  initWithFileID:fileID
+																  fileData:fileData
+																  fromBackup:self];
+					NSString *path = [groupPath stringByAppendingPathComponent:[relPath lastPathComponent]];
+					[self addFileObject:obj path:path];
 				}
 			}
 		}
