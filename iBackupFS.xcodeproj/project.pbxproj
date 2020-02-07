@@ -235,6 +235,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD0F69FA157562E500031119 /* Build configuration list for PBXNativeTarget "iBackupFS" */;
 			buildPhases = (
+				ADE8FD1323ED78DE00730803 /* Fetch & Build FMDB.framework via Carthage */,
 				AD38C936157E077A00891748 /* Update Version Information */,
 				AD0F69D8157562E500031119 /* Sources */,
 				AD0F69D9157562E500031119 /* Frameworks */,
@@ -303,6 +304,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nTMP_SUBST_FILE_PATH=/tmp/iBackupFS-Info.$$\n\n# retrieve the current version information\n. Version\n\necho \"Version --> v${MAJOR_VERSION}.${MINOR_VERSION}.${SUBMINOR_VERSION}\"\n\ncp \"${INFOPLIST_FILE}\" \"${TMP_SUBST_FILE_PATH}\"\nsed -e \"s/\\([1234567890]*\\)\\.\\([1234567890]*\\)\\.\\([1234567890abrc]*\\)/${MAJOR_VERSION}\\.${MINOR_VERSION}\\.${SUBMINOR_VERSION}/g\" -e \"s/PropertyList-.*dtd/PropertyList-1.0.dtd/\" \"${TMP_SUBST_FILE_PATH}\" > \"${INFOPLIST_FILE}\"\nrm -f \"${TMP_SUBST_FILE_PATH}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADE8FD1323ED78DE00730803 /* Fetch & Build FMDB.framework via Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Fetch & Build FMDB.framework via Carthage";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [ -d Carthage ]; then\n  exit 0\nfi\n\necho \"!! Please note that you need to have Carthage installed; see README.md for details.\"\ncarthage update --platform macOS\nexit 0\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
