@@ -1,3 +1,12 @@
+# Ideas
+
+- FileFormat Adaptors:
+  - According to FileID/Extension adaptors could be provided which makes inspecting
+   these files easier/trivial
+   - binary plists could be decoded as XML/whatever
+   - encrypted files could be decrypted on the fly
+   - …
+
 # Formats
 
 ## New Format
