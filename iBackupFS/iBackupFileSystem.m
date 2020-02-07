@@ -9,6 +9,7 @@
 #import "iBackupFileSystem.h"
 #import "NSObject+FUSEOFS.h"
 #import "iBackupSet.h"
+#import <AppKit/AppKit.h>
 
 @implementation iBackupFileSystem
 
@@ -34,8 +35,29 @@ static NSString *backupPath = nil;
 - (void)willMount {
 	self->backupSetMap = [[NSMutableDictionary alloc] init];
 
-	NSFileManager *fm    = [NSFileManager defaultManager];
-	NSArray       *names = [fm contentsOfDirectoryAtPath:backupPath error:NULL];
+	NSFileManager *fm = [NSFileManager defaultManager];
+	NSError *err;
+	NSArray *names = [fm contentsOfDirectoryAtPath:backupPath error:&err];
+	if (!names) {
+		NSLog(@"Error while trying to iterate '%@': %@",
+			  backupPath, [err localizedDescription], nil);
+
+		NSUserNotificationCenter *unc =
+			[NSUserNotificationCenter defaultUserNotificationCenter];
+		NSUserNotification *n = [[NSUserNotification alloc] init];
+		[n setTitle:[err localizedFailureReason]];
+		[n setSubtitle:[err localizedDescription]];
+		[n setHasActionButton:NO];
+		[unc deliverNotification:n];
+		[n release];
+
+		// background thread ok?
+		// https://stackoverflow.com/questions/1752855/fastest-way-to-programmatically-open-prefpane
+		NSString *urlString = @"x-apple.systempreferences:com.apple.preference.security?Privacy_FullDiskAccess";
+		[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:urlString]];
+
+		return;
+	}
 	for (NSString *name in names) {
 		NSString *path = [backupPath stringByAppendingPathComponent:name];
 		BOOL isDir;
