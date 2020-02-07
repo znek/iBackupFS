@@ -39,7 +39,7 @@ password is `iPhone_Password`.
 ## Customization
 
 Customization can be achieved, apart from modifying the code, by providing
-user defaults.
+[user defaults](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/UserDefaults/AboutPreferenceDomains/AboutPreferenceDomains.html).
 
 ### Builtin customization via user defaults
 
@@ -62,8 +62,9 @@ examples.
 
 ## References
 
+- [User Defaults](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/UserDefaults/AboutPreferenceDomains/AboutPreferenceDomains.html)
 - [macFUSE](http://osxfuse.github.com/)
 - [Filesystem in Userspace (FUSE)](https://en.wikipedia.org/wiki/Filesystem_in_Userspace)
-- [SQLite](https://www.sqlite.org/)
 - [Carthage](https://github.com/Carthage/Carthage)
 - [FMDB](https://github.com/ccgus/fmdb)
+- [SQLite](https://www.sqlite.org/)
