@@ -32,10 +32,11 @@ uint32_t _CFKeyedArchiverUIDGetValue(id uid);
 		  _CFKeyedArchiverUIDGetValue(fileData[@"$top"][@"root"]);
 		NSDictionary *objDict = fileData[@"$objects"][objDictIdx];
 
-		NSUInteger wrappedKeyDictIdx =
-		  _CFKeyedArchiverUIDGetValue(objDict[@"EncryptionKey"]);
-
-		self->wrappedKey = [fileData[@"$objects"][wrappedKeyDictIdx][@"NS.data"] retain];
+		id encryptionKeyUID = objDict[@"EncryptionKey"];
+		if (encryptionKeyUID) {
+			NSUInteger wrappedKeyDictIdx = _CFKeyedArchiverUIDGetValue(encryptionKeyUID);
+			self->wrappedKey = [fileData[@"$objects"][wrappedKeyDictIdx][@"NS.data"] retain];
+		}
 
 		self->attrs = [[NSMutableDictionary alloc] initWithCapacity:3];
 		NSNumber *timestamp = objDict[@"Birth"];

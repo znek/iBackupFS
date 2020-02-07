@@ -264,7 +264,7 @@ static BOOL showFileID = NO;
 	NSData *data = [NSData dataWithContentsOfFile:objPath];
 	[objPath release];
 
-	if (self->keybag) {
+	if (self->keybag && [_obj wrappedKey]) {
 		NSData *key = [self->keybag unwrapTypedKey:[_obj wrappedKey]];
 		data = [self->keybag decryptData:data withKey:key];
 	}
