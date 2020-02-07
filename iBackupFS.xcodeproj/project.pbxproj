@@ -103,6 +103,7 @@
 		ADC5D2FD23E9BEA200882760 /* libSystem.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libSystem.tbd; path = usr/lib/libSystem.tbd; sourceTree = SDKROOT; };
 		ADC5D2FF23EAED3000882760 /* iBackupFileObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iBackupFileObject.h; sourceTree = "<group>"; };
 		ADC5D30023EAED3000882760 /* iBackupFileObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iBackupFileObject.m; sourceTree = "<group>"; };
+		ADE8FD1423ED7B6300730803 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +124,7 @@
 		AD0F69D1157562E500031119 = {
 			isa = PBXGroup;
 			children = (
+				ADE8FD1423ED7B6300730803 /* README.md */,
 				AD0F6A3D157591BB00031119 /* NOTES.md */,
 				AD0F6A3F1575924600031119 /* Version */,
 				AD0F6A091575689100031119 /* FUSEOFS */,
