@@ -43,14 +43,14 @@ user defaults.
 
 ### Builtin customization via user defaults
 
-  Default         | Type           | Purpose
-| --------------- | ---------------| -------
-| `BackupPath`    | `BOOL`         | Complete path to the `Backup` directory. Useful for testing purposes (if you don't want to deal with _Full Disk Access Security_ all the time).
-| `ReplaceMap`    | `NSDictionary` | Used to map device specific "domains" to folders. See [iBackupFS-Info.plist](iBackupFS/iBackupFS-Info.plist) for examples.
-| `ShowFileID`    | `BOOL`         | Prepends file names with their corresponding `fileID`. Useful if you need these for inclusion in a smart group.
-| `UseGroups`     | `BOOL`         | Decide whether to use smart groups at all.
-| `UseGroupsOnly` | `BOOL`         | Decide whether to use only smart groups.
-| `Groups`        | `NSDictionary` | See below.
+  Default         | Type         | Purpose
+| --------------- | -------------| -------
+| `BackupPath`    | `String`     | Complete path to the `Backup` directory. Useful for testing purposes (if you don't want to deal with _Full Disk Access Security_ all the time).
+| `ReplaceMap`    | `Dictionary` | Used to map device specific "domains" to folders. See [iBackupFS-Info.plist](iBackupFS/iBackupFS-Info.plist) for examples.
+| `ShowFileID`    | `BOOL`       | Prepends file names with their corresponding `fileID`. Useful if you need these for inclusion in a smart group.
+| `UseGroups`     | `BOOL`       | Decide whether to use smart groups at all.
+| `UseGroupsOnly` | `BOOL`       | Decide whether to use only smart groups.
+| `Groups`        | `Dictionary` | See below.
 
 ### Groups
 
