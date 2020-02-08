@@ -60,6 +60,25 @@ scheme of the underlying `Manifest.db` [SQLite](https://www.sqlite.org/)
 database). See [iBackupFS-Info.plist](iBackupFS/iBackupFS-Info.plist) for
 examples.
 
+## Thanks
+
+Of course, thanks go to Benjamin Fleischer of
+[macFUSE](http://osxfuse.github.com/) for still investing time into this
+great project.
+Thanks most also go to the maintainers of
+[The iPhone Wiki](https://www.theiphonewiki.com), specifially to the 
+[iTunes Backup](https://www.theiphonewiki.com/wiki/ITunes_Backup) page.
+The most valuable resource, once again like often times was
+[Stackoverflow](https://stackoverflow.com/) - specifically the post by
+[Andrew Neitsch](https://stackoverflow.com/users/14558/andrewdotn) at
+[How to decrypt an *encrypted* iPhone backup](https://stackoverflow.com/questions/1498342/how-to-decrypt-an-encrypted-apple-itunes-iphone-backup).
+Almost all the code in [Keybag](iBackupFS/Keybag.m) is a direct translation
+from the posted Python code to Objective-C.
+[Carthage](https://github.com/Carthage/Carthage) is really helpful and
+without [FMDB](https://github.com/ccgus/fmdb) I'd have to write a
+[SQLite](https://www.sqlite.org/) wrapper myself, so thanks for saving me
+some time! ;-)
+
 ## References
 
 - [User Defaults](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/UserDefaults/AboutPreferenceDomains/AboutPreferenceDomains.html)
