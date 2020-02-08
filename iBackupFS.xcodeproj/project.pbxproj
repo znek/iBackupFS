@@ -33,6 +33,7 @@
 		AD31C72D23EB6B65005C1B27 /* FMDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AD31C72B23EB6B65005C1B27 /* FMDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ADC5D2FE23E9BEA200882760 /* libSystem.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC5D2FD23E9BEA200882760 /* libSystem.tbd */; };
 		ADC5D30123EAED3000882760 /* iBackupFileObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC5D30023EAED3000882760 /* iBackupFileObject.m */; };
+		ADE8FD1623EF7E3900730803 /* iBackupFS.icns in Resources */ = {isa = PBXBuildFile; fileRef = ADE8FD1523EF7E3900730803 /* iBackupFS.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -104,6 +105,7 @@
 		ADC5D2FF23EAED3000882760 /* iBackupFileObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iBackupFileObject.h; sourceTree = "<group>"; };
 		ADC5D30023EAED3000882760 /* iBackupFileObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iBackupFileObject.m; sourceTree = "<group>"; };
 		ADE8FD1423ED7B6300730803 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		ADE8FD1523EF7E3900730803 /* iBackupFS.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = iBackupFS.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 		AD0F6A00157563E000031119 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ADE8FD1523EF7E3900730803 /* iBackupFS.icns */,
 				AD0F69F5157562E500031119 /* MainMenu.xib */,
 				AD0F69E8157562E500031119 /* iBackupFS-Info.plist */,
 				AD07177F23E8CE5D004399DD /* Encrypted.md */,
@@ -287,6 +290,7 @@
 			files = (
 				AD0F69F7157562E500031119 /* MainMenu.xib in Resources */,
 				AD07178023E8D1E4004399DD /* Encrypted.md in Resources */,
+				ADE8FD1623EF7E3900730803 /* iBackupFS.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
