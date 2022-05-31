@@ -20,7 +20,7 @@ device(s).
 - [Carthage](https://github.com/Carthage/Carthage)
   - Once installed, everything should work out-of-the-box as Carthage is
     integrated into the build process via a script phase
-- [macFUSE](http://osxfuse.github.com/)
+- [macFUSE](http://osxfuse.github.io/)
 
 ## First Run
 
@@ -63,7 +63,7 @@ examples.
 ## Thanks
 
 Of course, thanks go to Benjamin Fleischer of
-[macFUSE](http://osxfuse.github.com/) for still investing time into this
+[macFUSE](http://osxfuse.github.io/) for still investing time into this
 great project.
 Thanks must also go to the maintainers of
 [The iPhone Wiki](https://www.theiphonewiki.com), specifially to the
@@ -82,7 +82,7 @@ some time! ;-)
 ## References
 
 - [User Defaults](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/UserDefaults/AboutPreferenceDomains/AboutPreferenceDomains.html)
-- [macFUSE](http://osxfuse.github.com/)
+- [macFUSE](http://osxfuse.github.io/)
 - [Filesystem in Userspace (FUSE)](https://en.wikipedia.org/wiki/Filesystem_in_Userspace)
 - [Carthage](https://github.com/Carthage/Carthage)
 - [FMDB](https://github.com/ccgus/fmdb)
