@@ -14,7 +14,7 @@
 		AD0F69ED157562E500031119 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F69EC157562E500031119 /* main.m */; };
 		AD0F69F7157562E500031119 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0F69F5157562E500031119 /* MainMenu.xib */; };
 		AD0F6A031575644900031119 /* iBackupFileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A021575644900031119 /* iBackupFileSystem.m */; };
-		AD0F6A051575672E00031119 /* OSXFUSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0F6A041575672E00031119 /* OSXFUSE.framework */; };
+		AD0F6A051575672E00031119 /* macFUSE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0F6A041575672E00031119 /* macFUSE.framework */; };
 		AD0F6A271575689100031119 /* FUSEObjectFileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A0C1575689100031119 /* FUSEObjectFileSystem.m */; };
 		AD0F6A281575689100031119 /* FUSEOFSAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A0E1575689100031119 /* FUSEOFSAppController.m */; };
 		AD0F6A291575689100031119 /* FUSEOFSFileProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0F6A101575689100031119 /* FUSEOFSFileProxy.m */; };
@@ -67,7 +67,7 @@
 		AD0F69F6157562E500031119 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		AD0F6A011575644900031119 /* iBackupFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iBackupFileSystem.h; sourceTree = "<group>"; };
 		AD0F6A021575644900031119 /* iBackupFileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iBackupFileSystem.m; sourceTree = "<group>"; };
-		AD0F6A041575672E00031119 /* OSXFUSE.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSXFUSE.framework; path = /Developer/SDKs/MacOSX10.5.sdk/Library/Frameworks/OSXFUSE.framework; sourceTree = "<absolute>"; };
+		AD0F6A041575672E00031119 /* macFUSE.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = macFUSE.framework; path = /Library/Frameworks/macFUSE.framework; sourceTree = "<absolute>"; };
 		AD0F6A0A1575689100031119 /* ChangeLog */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 8; lastKnownFileType = text; path = ChangeLog; sourceTree = "<group>"; tabWidth = 8; };
 		AD0F6A0B1575689100031119 /* FUSEObjectFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUSEObjectFileSystem.h; sourceTree = "<group>"; };
 		AD0F6A0C1575689100031119 /* FUSEObjectFileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUSEObjectFileSystem.m; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADC5D2FE23E9BEA200882760 /* libSystem.tbd in Frameworks */,
-				AD0F6A051575672E00031119 /* OSXFUSE.framework in Frameworks */,
+				AD0F6A051575672E00031119 /* macFUSE.framework in Frameworks */,
 				AD0F69E1157562E500031119 /* Cocoa.framework in Frameworks */,
 				AD31C72C23EB6B65005C1B27 /* FMDB.framework in Frameworks */,
 			);
@@ -151,7 +151,7 @@
 				AD31C72B23EB6B65005C1B27 /* FMDB.framework */,
 				ADC5D2FD23E9BEA200882760 /* libSystem.tbd */,
 				AD0F69E0157562E500031119 /* Cocoa.framework */,
-				AD0F6A041575672E00031119 /* OSXFUSE.framework */,
+				AD0F6A041575672E00031119 /* macFUSE.framework */,
 				AD0F69E2157562E500031119 /* Other Frameworks */,
 			);
 			name = Frameworks;
